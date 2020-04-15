@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+//Context
+import { ThemeContext } from '../../contexts/ThemeContext';
+
+//Components
+import AppTheme from '../../../static/util/AppTheme';
 
 //Bootstrap components
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const [theme, setTheme] = useContext(ThemeContext);
+
+  const changeTheme = (e) => {
+    setTheme(AppTheme[e.target.id]);
+    console.log(theme);
+  };
+
   return (
     <Navbar>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -12,12 +25,20 @@ const NavBar = () => {
         <Nav.Link href="/high-score">High score</Nav.Link>
         <Nav.Link href="/contacts">Contacts</Nav.Link>
         <Dropdown>
-          <Dropdown.Toggle variant="success">Change Theme</Dropdown.Toggle>
+          <Dropdown.Toggle variant={props.currentTheme.variant}>
+            Change Theme
+          </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item>Shire</Dropdown.Item>
-            <Dropdown.Item>Mordor</Dropdown.Item>
-            <Dropdown.Item>Gondor</Dropdown.Item>
+            <Dropdown.Item onClick={changeTheme} id="shire">
+              Shire
+            </Dropdown.Item>
+            <Dropdown.Item onClick={changeTheme} id="mordor">
+              Mordor
+            </Dropdown.Item>
+            <Dropdown.Item onClick={changeTheme} id="gondor">
+              Gondor
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Nav>

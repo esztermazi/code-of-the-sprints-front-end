@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <React.Fragment>
       <Link
@@ -10,7 +10,7 @@ const Footer = () => {
           pathname: `/main-menu`,
         }}
       >
-        <Button variant="success">Back to main menu</Button>
+        <Button variant={props.currentTheme.variant}>Back to main menu</Button>
       </Link>
     </React.Fragment>
   );

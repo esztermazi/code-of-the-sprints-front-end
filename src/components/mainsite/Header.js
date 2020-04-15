@@ -7,12 +7,12 @@ import NavBar from '../mainsite/header/NavBar';
 //Sytled components
 import StyledColumnContainer from '../style/layout/StyledColumnContainer';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <React.Fragment>
       <StyledColumnContainer>
-        <Logo />
-        <NavBar />
+        <Logo currentTheme={props.currentTheme} />
+        <NavBar currentTheme={props.currentTheme} />
       </StyledColumnContainer>
     </React.Fragment>
   );

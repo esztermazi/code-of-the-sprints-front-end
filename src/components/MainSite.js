@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 //Components
 import Poem from './mainsite/Poem';
+import AppTheme from '../static/util/AppTheme';
+
+//Context
+import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 //Sytled components
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
@@ -15,16 +20,24 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 const MainSite = () => {
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
+
+
   return (
-    <StyledColumnContainer>
-      <Poem />
-      <Link to="/main-menu">
-        <img src={HomePic} alt="poster" />
-      </Link>
-      <Link to="/">
-        <Button variant="success">￩I Want to speake Sindarin again!</Button>
-      </Link>
-    </StyledColumnContainer>
+    <ThemeProvider value={currentTheme}>
+      <StyledColumnContainer>
+        <Poem currentTheme={currentTheme} />
+        <Link to="/main-menu">
+          <img src={HomePic} alt="poster" />
+        </Link>
+        <Link to="/">
+          <Button variant={currentTheme.variant}>
+            ￩I Want to speake Sindarin again!
+          </Button>
+        </Link>
+      </StyledColumnContainer>
+    </ThemeProvider>
   );
 };
 

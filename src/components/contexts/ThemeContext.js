@@ -1,8 +1,8 @@
 import React, { useState, createContext } from 'react';
 
-export const ThemeContext = createContext(['colorful', () => {}]);
+export const ThemeContext = createContext(['shire', () => {}]);
 
-export const ThemeProvider = props => {
+export const ThemeProvider = (props) => {
   const [theme, setTheme] = useState([]);
 
   return (
