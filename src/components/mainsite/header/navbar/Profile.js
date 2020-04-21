@@ -13,7 +13,7 @@ const Profile = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div>Profile page</div>
+      <div className={currentTheme.textColor}>Profile page</div>
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );

@@ -13,10 +13,10 @@ const HighScore = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div>High Score page</div>
+      <div className={currentTheme.textColor}>High Score page</div>
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );
-}
+};
 
 export default HighScore;

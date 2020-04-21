@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 
 //Components
 import WelcomeSite from './components/WelcomeSite';
@@ -10,7 +10,6 @@ import TheBlackGate from './components/mainsite/mainmenu/TheBlackGate';
 import Profile from './components/mainsite/header/navbar/Profile';
 import HighScore from './components/mainsite/header/navbar/HighScore';
 import Contacts from './components/mainsite/header/navbar/Contacts';
-import AppTheme from './static/util/AppTheme';
 
 //Contexts
 import { ThemeContext } from './components/contexts/ThemeContext';

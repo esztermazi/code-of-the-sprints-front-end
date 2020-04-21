@@ -11,18 +11,15 @@ import { ThemeContext } from './contexts/ThemeContext';
 
 //Styled Components
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
+import BackGroundContainer from './style/layout/BackgroundContainer';
 
 const MainSite = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   return (
-    <div
+    <BackGroundContainer
       style={{
         backgroundColor: currentTheme.bodyBackground,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
       }}
     >
       <StyledColumnContainer>
@@ -30,7 +27,7 @@ const MainSite = () => {
         <MainMenu />
         <Footer />
       </StyledColumnContainer>
-    </div>
+    </BackGroundContainer>
   );
 };
 

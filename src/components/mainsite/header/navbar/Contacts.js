@@ -13,7 +13,7 @@ const Contacts = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div>Contacts page</div>
+      <div className={currentTheme.textColor}>Contacts page</div>
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );

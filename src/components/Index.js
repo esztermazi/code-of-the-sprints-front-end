@@ -8,6 +8,7 @@ import AppTheme from '../static/util/AppTheme';
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 //Sytled components
+import BackgroundContainer from './style/layout/BackgroundContainer';
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
 
 //Images
@@ -25,13 +26,9 @@ const Index = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div
+      <BackgroundContainer
         style={{
           backgroundColor: currentTheme.bodyBackground,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100%',
         }}
       >
         <StyledColumnContainer>
@@ -41,11 +38,11 @@ const Index = () => {
           </Link>
           <Link to="/">
             <Button variant={currentTheme.variant}>
-              ￩I Want to speake Sindarin again!
+              ￩I Want to speake Elvish again!
             </Button>
           </Link>
         </StyledColumnContainer>
-      </div>
+      </BackgroundContainer>
     </ThemeProvider>
   );
 };

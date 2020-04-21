@@ -10,9 +10,10 @@ import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 //Sytled component
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
+import BackgroundContainer from './style/layout/BackgroundContainer';
 
 //Bootstrap components
-import { Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 const WelcomeSite = () => {
   const theme = useContext(ThemeContext)[0];
@@ -20,26 +21,19 @@ const WelcomeSite = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div
-        style={{
-          backgroundColor: currentTheme.bodyBackground,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100%',
-        }}
-      >
+      <BackgroundContainer style={{ backgroundColor: 'rgb(37, 39, 38)' }}>
         <StyledColumnContainer>
-          <Link
-            to={{
-              pathname: `/scores-of-the-sprints`,
-            }}
-          >
+          <Link to="/home-of-the-sprints">
             <img src={WelcomePic} alt="welcomepic"></img>
           </Link>
-          <Button variant={currentTheme.variant}>Say friend and enter !</Button>
+          <Alert variant={currentTheme.variant}>
+            <Alert.Heading className="text-center">
+              "It's a riddle. Speak friend and enter. What's the Elvish word for
+              friend?"
+            </Alert.Heading>
+          </Alert>
         </StyledColumnContainer>
-      </div>
+      </BackgroundContainer>
     </ThemeProvider>
   );
 };
