@@ -25,17 +25,27 @@ const Index = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <StyledColumnContainer cardBackGround>
-        <Poem currentTheme={currentTheme} />
-        <Link to="/scores-of-the-sprints">
-          <img src={HomePic} alt="poster" />
-        </Link>
-        <Link to="/">
-          <Button variant={currentTheme.variant}>
-            ￩I Want to speake Sindarin again!
-          </Button>
-        </Link>
-      </StyledColumnContainer>
+      <div
+        style={{
+          backgroundColor: currentTheme.bodyBackground,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+        }}
+      >
+        <StyledColumnContainer>
+          <Poem currentTheme={currentTheme} />
+          <Link to="/scores-of-the-sprints">
+            <img src={HomePic} alt="poster" />
+          </Link>
+          <Link to="/">
+            <Button variant={currentTheme.variant}>
+              ￩I Want to speake Sindarin again!
+            </Button>
+          </Link>
+        </StyledColumnContainer>
+      </div>
     </ThemeProvider>
   );
 };

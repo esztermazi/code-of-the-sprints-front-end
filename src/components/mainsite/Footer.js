@@ -8,7 +8,7 @@ import AppTheme from '../../static/util/AppTheme';
 
 const Footer = (props) => {
   const theme = useContext(ThemeContext)[0];
-  let currentTheme = AppTheme[theme];
+  const currentTheme = AppTheme[theme];
 
   return (
     <ThemeProvider value={currentTheme}>

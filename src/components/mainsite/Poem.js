@@ -7,7 +7,7 @@ const Poem = (props) => {
   return (
     <Alert variant={props.currentTheme.variant}>
       <Alert.Heading className="text-center">Dear applicant !</Alert.Heading>
-      <parent className="text-center">
+      <p className="text-center">
         Three Rings for the Elven Lords under the Sky Seven for the Dwarf
         <br></br>
         Lords in their halls of Stone Nine for Mortal Men doomed to die One
@@ -17,7 +17,7 @@ const Poem = (props) => {
         Shadows lie One Shift to rule them all, One Shift to find them One
         <br></br>
         Shift to bring them all and in the darkness bind them.<br></br>
-      </parent>
+      </p>
 
       <hr />
       <p className="mb-0 text-center">Please Log in to start your journey ↓</p>

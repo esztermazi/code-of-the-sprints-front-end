@@ -24,8 +24,6 @@ const MainMenu = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
 
-  console.log(currentTheme.textColor);
-
   return (
     <ThemeProvider value={currentTheme}>
       <StyledInLineContainer>
@@ -36,11 +34,7 @@ const MainMenu = () => {
           }}
           className={currentTheme.textColor}
         >
-          <Link
-            to={{
-              pathname: `/gate-invaders`,
-            }}
-          >
+          <Link to="/gate-invaders">
             <Card.Img variant="top" src={GateInvadersPic} alt="gate-invaders" />
           </Link>
           <Card.Body>
@@ -58,11 +52,7 @@ const MainMenu = () => {
           }}
           className={currentTheme.textColor}
         >
-          <Link
-            to={{
-              pathname: `/order-builder`,
-            }}
-          >
+          <Link to="/order-builder">
             <Card.Img variant="top" src={OrderBuilderPic} alt="order-builder" />
           </Link>
           <Card.Body>
@@ -80,11 +70,7 @@ const MainMenu = () => {
           }}
           className={currentTheme.textColor}
         >
-          <Link
-            to={{
-              pathname: `/the-black-gate`,
-            }}
-          >
+          <Link to="/the-black-gate">
             <Card.Img
               variant="top"
               src={TheBlackGatePic}

@@ -16,20 +16,30 @@ import { Button } from 'react-bootstrap';
 
 const WelcomeSite = () => {
   const theme = useContext(ThemeContext)[0];
-  let currentTheme = AppTheme[theme];
+  const currentTheme = AppTheme[theme];
 
   return (
     <ThemeProvider value={currentTheme}>
-      <StyledColumnContainer>
-        <Link
-          to={{
-            pathname: `/scores-of-the-sprints`,
-          }}
-        >
-          <img src={WelcomePic} alt="welcomepic"></img>
-        </Link>
-        <Button variant={currentTheme.variant}>Say friend and enter !</Button>
-      </StyledColumnContainer>
+      <div
+        style={{
+          backgroundColor: currentTheme.bodyBackground,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+        }}
+      >
+        <StyledColumnContainer>
+          <Link
+            to={{
+              pathname: `/scores-of-the-sprints`,
+            }}
+          >
+            <img src={WelcomePic} alt="welcomepic"></img>
+          </Link>
+          <Button variant={currentTheme.variant}>Say friend and enter !</Button>
+        </StyledColumnContainer>
+      </div>
     </ThemeProvider>
   );
 };

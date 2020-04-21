@@ -3,6 +3,9 @@ import React, { useContext } from 'react';
 //Context
 import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
 
+//Packages
+import { Link } from 'react-router-dom';
+
 //Components
 import AppTheme from '../../../static/util/AppTheme';
 
@@ -22,18 +25,18 @@ const NavBar = () => {
       <Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav>
-          <Nav.Link className={currentTheme.textColor} href="/profile">
-            Profile
-          </Nav.Link>
-          <Nav.Link className={currentTheme.textColor} href="/high-score">
-            High score
-          </Nav.Link>
-          <Nav.Link className={currentTheme.textColor} href="/contacts">
-            Contacts
-          </Nav.Link>
+          <Link to="/profile">
+            <Nav.Item className={currentTheme.textColor}>Profile</Nav.Item>
+          </Link>
+          <Link to="/high-score">
+            <Nav.Item className={currentTheme.textColor}>High score</Nav.Item>
+          </Link>
+          <Link to="/contacts">
+            <Nav.Item className={currentTheme.textColor}>Contacts</Nav.Item>
+          </Link>
           <Dropdown>
             <Dropdown.Toggle variant={currentTheme.variant}>
-              Change Theme
+              Theme
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
