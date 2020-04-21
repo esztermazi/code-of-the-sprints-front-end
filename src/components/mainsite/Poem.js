@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 //Bootstrap components
 import { Alert } from 'react-bootstrap';
 
 const Poem = (props) => {
-  console.log(props.currentTheme.variant);
-
   return (
     <Alert variant={props.currentTheme.variant}>
       <Alert.Heading className="text-center">Dear applicant !</Alert.Heading>

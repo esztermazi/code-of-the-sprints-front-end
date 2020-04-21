@@ -2,17 +2,20 @@ const AppTheme = {
   shire: {
     variant: 'success',
     bodyBackground: 'rgba(41, 241, 195, 1)',
-    textColor: '#fff',
+    textColor: 'text-success',
+    cardBackGround: 'black',
   },
   mordor: {
     variant: 'danger',
     bodyBackground: '#d3d3d3',
-    textColor: 'gold',
+    textColor: 'text-warning',
+    cardBackGround: 'black',
   },
   gondor: {
     variant: 'light',
     bodyBackground: '#fff',
-    textColor: 'grey',
+    textColor: 'text-info',
+    cardBackGround: 'grey',
   },
 };
 

@@ -1,43 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 //Components
-import Poem from './mainsite/Poem';
-import AppTheme from '../static/util/AppTheme';
+import MainMenu from './mainsite/MainMenu';
+import Header from './mainsite/Header';
+import Footer from './mainsite/Footer';
 
-//Context
-import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
-
-//Sytled components
+//Styled Components
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
 
-//Images
-import HomePic from '../static/img/Home.png';
-
-//Packages
-import { Link } from 'react-router-dom';
-
-//Bootstrap components
-import { Button } from 'react-bootstrap';
-
 const MainSite = () => {
-  const theme = useContext(ThemeContext)[0];
-  const currentTheme = AppTheme[theme];
-
 
   return (
-    <ThemeProvider value={currentTheme}>
       <StyledColumnContainer>
-        <Poem currentTheme={currentTheme} />
-        <Link to="/main-menu">
-          <img src={HomePic} alt="poster" />
-        </Link>
-        <Link to="/">
-          <Button variant={currentTheme.variant}>
-            ￩I Want to speake Sindarin again!
-          </Button>
-        </Link>
+        <Header />
+        <MainMenu />
+        <div>
+          <Footer />
+        </div>
       </StyledColumnContainer>
-    </ThemeProvider>
   );
 };
 

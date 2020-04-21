@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Footer from '../../Footer';
+import Footer from '../../mainmenu/Footer';
 
 //Context
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
@@ -7,7 +7,7 @@ import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
 //Components
 import AppTheme from '../../../../static/util/AppTheme';
 
-function Contacts() {
+const Contacts = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
 
@@ -17,6 +17,6 @@ function Contacts() {
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );
-}
+};
 
 export default Contacts;

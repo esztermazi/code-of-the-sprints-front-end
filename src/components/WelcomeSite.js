@@ -16,7 +16,7 @@ import { Button } from 'react-bootstrap';
 
 const WelcomeSite = () => {
   const theme = useContext(ThemeContext)[0];
-  const currentTheme = AppTheme[theme];
+  let currentTheme = AppTheme[theme];
 
   return (
     <ThemeProvider value={currentTheme}>
