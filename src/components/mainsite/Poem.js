@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Bootstrap components
+//Bootstrap component
 import { Alert } from 'react-bootstrap';
 
 const Poem = (props) => {
@@ -20,7 +20,7 @@ const Poem = (props) => {
       </p>
 
       <hr />
-      <p className="mb-0 text-center">Please Log in to start your journey ↓</p>
+      <p className="mb-0 text-center">Start your journey ↓</p>
     </Alert>
   );
 };

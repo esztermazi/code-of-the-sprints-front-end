@@ -7,7 +7,7 @@ const Footer = (props) => {
     <React.Fragment>
       <Link
         to={{
-          pathname: `/scores-of-the-sprints`,
+          pathname: `/code-of-the-sprints`,
         }}
       >
         <Button variant={props.currentTheme.variant}>Back to main menu</Button>

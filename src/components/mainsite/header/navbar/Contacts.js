@@ -4,7 +4,7 @@ import Footer from '../../mainmenu/Footer';
 //Context
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
 
-//Components
+//Component
 import AppTheme from '../../../../static/util/AppTheme';
 
 const Contacts = () => {

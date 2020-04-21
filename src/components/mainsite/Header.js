@@ -1,10 +1,8 @@
 import React from 'react';
 
-//Components
+//Component
 import Logo from '../mainsite/header/Logo';
 import NavBar from '../mainsite/header/NavBar';
-
-//Sytled components
 
 const Header = () => {
   return (

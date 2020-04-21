@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
-//Packages
+//Package
 import { Link } from 'react-router-dom';
 
-//Components
+//Component
 import AppTheme from '../../static/util/AppTheme';
 
-//Pictures
+//Picture
 import GateInvadersPic from '../../static/img/GateInvaders.png';
 import OrderBuilderPic from '../../static/img/OrderBuilder.png';
 import TheBlackGatePic from '../../static/img/TheBlackGate.png';
@@ -14,10 +14,10 @@ import TheBlackGatePic from '../../static/img/TheBlackGate.png';
 //Context
 import { ThemeContext, ThemeProvider } from '../contexts/ThemeContext';
 
-//Styled Components
+//Styled Component
 import StyledInLineContainer from '../style/layout/SytledInLineContainer';
 
-//Bootstrap components
+//Bootstrap component
 import { Card } from 'react-bootstrap';
 
 const MainMenu = () => {

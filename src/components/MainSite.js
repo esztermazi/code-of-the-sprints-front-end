@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-//Components
+//Component
 import MainMenu from './mainsite/MainMenu';
 import Header from './mainsite/Header';
 import Footer from './mainsite/Footer';
@@ -9,15 +9,15 @@ import AppTheme from '../static/util/AppTheme';
 //Context
 import { ThemeContext } from './contexts/ThemeContext';
 
-//Styled Components
+//Styled Component
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
-import BackGroundContainer from './style/layout/BackgroundContainer';
+import BackgroundContainer from './style/layout/BackgroundContainer';
 
 const MainSite = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   return (
-    <BackGroundContainer
+    <BackgroundContainer
       style={{
         backgroundColor: currentTheme.bodyBackground,
       }}
@@ -27,7 +27,7 @@ const MainSite = () => {
         <MainMenu />
         <Footer />
       </StyledColumnContainer>
-    </BackGroundContainer>
+    </BackgroundContainer>
   );
 };
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
-//Components
+//Context
+import { ThemeContext } from './components/contexts/ThemeContext';
+
+//Component
 import WelcomeSite from './components/WelcomeSite';
 import Index from './components/Index';
 import MainSite from './components/MainSite';
@@ -11,10 +14,7 @@ import Profile from './components/mainsite/header/navbar/Profile';
 import HighScore from './components/mainsite/header/navbar/HighScore';
 import Contacts from './components/mainsite/header/navbar/Contacts';
 
-//Contexts
-import { ThemeContext } from './components/contexts/ThemeContext';
-
-//Packages
+//Package
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
       <Router>
         <Route exact path="/" component={WelcomeSite} />
         <Route exact path="/home-of-the-sprints" component={Index} />
-        <Route exact path="/scores-of-the-sprints" component={MainSite} />
+        <Route exact path="/code-of-the-sprints" component={MainSite} />
         <Route exact path="/gate-invaders" component={GateInvaders} />
         <Route exact path="/order-builder" component={OrderBuilder} />
         <Route exact path="/the-black-gate" component={TheBlackGate} />

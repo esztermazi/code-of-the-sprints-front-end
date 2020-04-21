@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
 
-//Components
+//Component
 import Poem from './mainsite/Poem';
 import AppTheme from '../static/util/AppTheme';
 
 //Context
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
-//Sytled components
+//Sytled component
 import BackgroundContainer from './style/layout/BackgroundContainer';
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
 
-//Images
+//Image
 import HomePic from '../static/img/Home.png';
 
-//Packages
+//Package
 import { Link } from 'react-router-dom';
 
-//Bootstrap components
+//Bootstrap component
 import { Button } from 'react-bootstrap';
 
 const Index = () => {
@@ -33,7 +33,7 @@ const Index = () => {
       >
         <StyledColumnContainer>
           <Poem currentTheme={currentTheme} />
-          <Link to="/scores-of-the-sprints">
+          <Link to="/code-of-the-sprints">
             <img src={HomePic} alt="poster" />
           </Link>
           <Link to="/">

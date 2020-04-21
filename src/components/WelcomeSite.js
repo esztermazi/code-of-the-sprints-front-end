@@ -12,7 +12,7 @@ import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 import StyledColumnContainer from './style/layout/StyledColumnContainer';
 import BackgroundContainer from './style/layout/BackgroundContainer';
 
-//Bootstrap components
+//Bootstrap component
 import { Alert } from 'react-bootstrap';
 
 const WelcomeSite = () => {

@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-//Image
-import LogoPic from '../../../static/img/Logo.png';
+//Context
+import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
+
+//Component
+import AppTheme from '../../../static/util/AppTheme';
 
 const Logo = () => {
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
+  const images = require.context('../../../static/img/', true);
+  let logoImageUrl = images(`./${currentTheme.logoPic}.png`);
+
   return (
-    <div className="logo">
-      <img src={LogoPic} alt="logo" width="150" height="150"></img>
-    </div>
+    <ThemeProvider value={currentTheme}>
+      <img src={logoImageUrl} alt="logo" width="280" height="250" />
+    </ThemeProvider>
   );
 };
 
