@@ -9,7 +9,7 @@ const AppTheme = {
     variant: 'danger',
     bodyBackground: '#d3d3d3',
     textColor: 'text-warning',
-    cardBackGround: 'black',
+    cardBackGround: '#1a1a1a',
   },
   gondor: {
     variant: 'light',

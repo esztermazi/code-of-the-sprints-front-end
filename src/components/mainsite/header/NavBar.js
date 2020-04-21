@@ -21,10 +21,16 @@ const NavBar = () => {
     <ThemeProvider value={currentTheme}>
       <Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav className="mr-auto">
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/high-score">High score</Nav.Link>
-          <Nav.Link href="/contacts">Contacts</Nav.Link>
+        <Nav>
+          <Nav.Link className={currentTheme.textColor} href="/profile">
+            Profile
+          </Nav.Link>
+          <Nav.Link className={currentTheme.textColor} href="/high-score">
+            High score
+          </Nav.Link>
+          <Nav.Link className={currentTheme.textColor} href="/contacts">
+            Contacts
+          </Nav.Link>
           <Dropdown>
             <Dropdown.Toggle variant={currentTheme.variant}>
               Change Theme
