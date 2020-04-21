@@ -3,7 +3,7 @@ const AppTheme = {
     variant: 'success',
     bodyBackground: 'rgba(41, 241, 195, 1)',
     textColor: 'text-success',
-    cardBackGround: 'black',
+    cardBackGround: '#F6F6DD',
   },
   mordor: {
     variant: 'danger',
@@ -15,7 +15,7 @@ const AppTheme = {
     variant: 'light',
     bodyBackground: '#fff',
     textColor: 'text-info',
-    cardBackGround: 'grey',
+    cardBackGround: '#f2f2f2',
   },
 };
 

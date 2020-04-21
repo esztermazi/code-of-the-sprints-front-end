@@ -8,7 +8,7 @@ const Poem = (props) => {
     <Alert variant={props.currentTheme.variant}>
       <Alert.Heading className="text-center">Dear applicant !</Alert.Heading>
       <parent className="text-center">
-        Three Rings for the Elven Lords under the Sky Seven for the Dwarf\n
+        Three Rings for the Elven Lords under the Sky Seven for the Dwarf
         <br></br>
         Lords in their halls of Stone Nine for Mortal Men doomed to die One
         <br></br>

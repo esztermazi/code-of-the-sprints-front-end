@@ -51,7 +51,13 @@ const MainMenu = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card style={{ width: '18rem' }}>
+        <Card
+          style={{
+            width: '18rem',
+            backgroundColor: currentTheme.cardBackGround,
+          }}
+          className={currentTheme.textColor}
+        >
           <Link
             to={{
               pathname: `/order-builder`,
@@ -67,7 +73,13 @@ const MainMenu = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card style={{ width: '18rem' }}>
+        <Card
+          style={{
+            width: '18rem',
+            backgroundColor: currentTheme.cardBackGround,
+          }}
+          className={currentTheme.textColor}
+        >
           <Link
             to={{
               pathname: `/the-black-gate`,
