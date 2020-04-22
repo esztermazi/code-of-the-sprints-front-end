@@ -8,8 +8,10 @@ import AppTheme from '../static/util/AppTheme';
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 //Sytled component
-import BackgroundContainer from './style/layout/BackgroundContainer';
-import StyledColumnContainer from './style/layout/StyledColumnContainer';
+import {
+  BackgroundContainer,
+  StyledColumnContainer,
+} from './style/LayoutElements';
 
 //Image
 import HomePic from '../static/img/Home.png';

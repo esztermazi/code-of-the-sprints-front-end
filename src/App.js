@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { ThemeContext } from './components/contexts/ThemeContext';
 
 //Component
-import WelcomeSite from './components/WelcomeSite';
+import LoginSite from './components/LoginSite';
 import Index from './components/Index';
 import MainSite from './components/MainSite';
 import GateInvaders from './components/mainsite/mainmenu/GateInvaders';
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <ThemeContext.Provider value={themeHook}>
       <Router>
-        <Route exact path="/" component={WelcomeSite} />
+        <Route exact path="/" component={LoginSite} />
         <Route exact path="/home-of-the-sprints" component={Index} />
         <Route exact path="/code-of-the-sprints" component={MainSite} />
         <Route exact path="/gate-invaders" component={GateInvaders} />

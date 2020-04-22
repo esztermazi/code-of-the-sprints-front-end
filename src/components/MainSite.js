@@ -10,8 +10,10 @@ import AppTheme from '../static/util/AppTheme';
 import { ThemeContext } from './contexts/ThemeContext';
 
 //Styled Component
-import StyledColumnContainer from './style/layout/StyledColumnContainer';
-import BackgroundContainer from './style/layout/BackgroundContainer';
+import {
+  BackgroundContainer,
+  StyledColumnContainer,
+} from './style/LayoutElements';
 
 const MainSite = () => {
   const theme = useContext(ThemeContext)[0];

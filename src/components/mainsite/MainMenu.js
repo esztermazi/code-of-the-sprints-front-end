@@ -15,7 +15,7 @@ import TheBlackGatePic from '../../static/img/TheBlackGate.png';
 import { ThemeContext, ThemeProvider } from '../contexts/ThemeContext';
 
 //Styled Component
-import StyledInLineContainer from '../style/layout/SytledInLineContainer';
+import { StyledInLineContainer } from '../style/LayoutElements';
 
 //Bootstrap component
 import { Card } from 'react-bootstrap';
