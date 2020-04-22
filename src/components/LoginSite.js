@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
 import WelcomePic from '../static/img/Welcome.gif';
 

@@ -2,10 +2,8 @@ import React, { useContext, useState } from 'react';
 
 //Context
 import { ThemeContext } from './components/contexts/ThemeContext';
-import {
-  LoginContext,
-  LoginProvider,
-} from './components/contexts/LoginContext';
+import { LoginContext } from './components/contexts/LoginContext';
+import { CharactersProvider } from './components/contexts/CharactersContext';
 
 //Component
 import LoginSite from './components/LoginSite';
@@ -39,7 +37,9 @@ const App = () => {
         <Route exact path="/the-black-gate" component={TheBlackGate} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/high-score" component={HighScore} />
-        <Route exact path="/contacts" component={Contacts} />
+        <CharactersProvider>
+          <Route exact path="/contacts" component={Contacts} />
+        </CharactersProvider>
       </Router>
     </ThemeContext.Provider>
   );
