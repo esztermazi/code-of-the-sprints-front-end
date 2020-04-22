@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
 import WelcomePic from '../static/img/Welcome.gif';
 
@@ -7,6 +7,7 @@ import AppTheme from '../static/util/AppTheme';
 
 //Context
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
+import { LoginContext } from './contexts/LoginContext';
 
 //Sytled component
 import {
@@ -22,6 +23,7 @@ import { MicFill } from 'react-bootstrap-icons';
 const LoginSite = (props) => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const { setHasPassword } = useContext(LoginContext);
 
   const [value, setValue] = useState('');
   const { listen, listening, stop } = useSpeechRecognition({
@@ -29,7 +31,6 @@ const LoginSite = (props) => {
       setValue(result);
       if (result === 'mellon') {
         moveToHomePage();
-        stop();
       }
     },
   });
@@ -42,6 +43,7 @@ const LoginSite = (props) => {
   };
 
   const moveToHomePage = () => {
+    setHasPassword(true);
     setTimeout(function () {
       props.history.push('/home-of-the-sprints');
     }, 1500);

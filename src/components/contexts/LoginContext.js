@@ -3,10 +3,10 @@ import React, { createContext, useState } from 'react';
 export const LoginContext = createContext();
 
 export const LoginProvider = (props) => {
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [hasPassword, setHasPassword] = useState(false);
 
   return (
-    <LoginContext.Provider value={{ isPasswordValid, setIsPasswordValid }}>
+    <LoginContext.Provider value={{hasPassword, setHasPassword}}>
       {props.children}
     </LoginContext.Provider>
   );

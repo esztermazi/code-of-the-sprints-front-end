@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { LoginProvider } from './components/contexts/LoginContext';
 import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LoginProvider>
+      <App />
+    </LoginProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

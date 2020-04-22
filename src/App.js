@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 //Context
 import { ThemeContext } from './components/contexts/ThemeContext';
+import {
+  LoginContext,
+  LoginProvider,
+} from './components/contexts/LoginContext';
 
 //Component
 import LoginSite from './components/LoginSite';
@@ -15,15 +19,19 @@ import HighScore from './components/mainsite/header/navbar/HighScore';
 import Contacts from './components/mainsite/header/navbar/Contacts';
 
 //Package
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 const App = () => {
+  const { hasPassword } = useContext(LoginContext);
   const themeHook = useState('shire');
 
   return (
     <ThemeContext.Provider value={themeHook}>
       <Router>
         <Route exact path="/" component={LoginSite} />
+        <Route
+          render={() => (hasPassword ? false : <Redirect to="/" />)}
+        ></Route>
         <Route exact path="/home-of-the-sprints" component={Index} />
         <Route exact path="/code-of-the-sprints" component={MainSite} />
         <Route exact path="/gate-invaders" component={GateInvaders} />

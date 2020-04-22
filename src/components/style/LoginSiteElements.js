@@ -6,6 +6,7 @@ export const Textarea = styled.textarea`
   width: 30%;
   border-radius: 8px;
   padding: 10px;
+  text-align: center;
   resize: none;
   font-size: 18px;
   &:focus {
