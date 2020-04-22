@@ -27,17 +27,24 @@ const LoginSite = (props) => {
   const { listen, listening, stop } = useSpeechRecognition({
     onResult: (result) => {
       setValue(result);
-     
+      if (result === 'mellon') {
+        moveToHomePage();
+        stop();
+      }
     },
   });
 
   const handleTextAreaChange = (event) => {
     setValue(event.target.value);
     if (event.target.value === 'mellon') {
-      setTimeout(function () {
-        props.history.push('/home-of-the-sprints');
-      }, 2000);
+      moveToHomePage();
     }
+  };
+
+  const moveToHomePage = () => {
+    setTimeout(function () {
+      props.history.push('/home-of-the-sprints');
+    }, 1500);
   };
 
   return (
