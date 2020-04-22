@@ -27,8 +27,18 @@ const LoginSite = (props) => {
   const { listen, listening, stop } = useSpeechRecognition({
     onResult: (result) => {
       setValue(result);
+     
     },
   });
+
+  const handleTextAreaChange = (event) => {
+    setValue(event.target.value);
+    if (event.target.value === 'mellon') {
+      setTimeout(function () {
+        props.history.push('/home-of-the-sprints');
+      }, 2000);
+    }
+  };
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -41,10 +51,7 @@ const LoginSite = (props) => {
               friend?"
             </Alert.Heading>
           </Alert>
-          <Textarea
-            value={value}
-            onChange={(event) => setValue(event.target.value)}
-          />
+          <Textarea value={value} onChange={handleTextAreaChange} />
           <Button
             variant={currentTheme.variant}
             onMouseDown={listen}
