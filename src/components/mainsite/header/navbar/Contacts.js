@@ -1,25 +1,42 @@
+//Packages
 import React, { useContext, useEffect } from 'react';
-import Footer from '../../mainmenu/Footer';
+import Tree from 'react-tree-graph';
+import 'react-tree-graph/dist/style.css';
 
 //Context
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
-import { CharactersContext } from '../../../contexts/CharactersContext';
+
 //Component
 import AppTheme from '../../../../static/util/AppTheme';
+import Houses from '../../../../static/util/Houses';
+import Footer from '../../mainmenu/Footer';
+
+//Styled Component
+import {
+  BackgroundContainer,
+  StyledColumnContainer,
+} from '../../../style/LayoutElements';
 
 const Contacts = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
-  const { characters, fetchCharacters } = useContext(CharactersContext);
-
-  useEffect(() => {
-    fetchCharacters('https://the-one-api.herokuapp.com/v1/character');
-  }, [fetchCharacters, characters]);
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div className={currentTheme.textColor}>Contacts page</div>
-      <Footer currentTheme={currentTheme} />
+      <BackgroundContainer
+        style={{ backgroundColor: currentTheme.bodyBackground }}
+      >
+        <StyledColumnContainer>
+          <div className={currentTheme.textColor}>Contacts</div>
+          <Footer currentTheme={currentTheme} />
+          <Tree
+            data={Houses}
+            margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
+            height={1000}
+            width={1900}
+          ></Tree>
+        </StyledColumnContainer>
+      </BackgroundContainer>
     </ThemeProvider>
   );
 };

@@ -4,7 +4,7 @@ import Axios from 'axios';
 export const CharactersContext = createContext();
 
 export const CharactersProvider = (props) => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState({});
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';
 
   const fetchCharacters = useCallback((url) => {
@@ -13,25 +13,47 @@ export const CharactersProvider = (props) => {
         Authorization: `Bearer ${jwtoken}`,
       },
     }).then((resp) => {
-      let humans = [];
-      let elves = [];
-      let hobbits = [];
-      let dwarfes = [];
+      let humanList = [];
+      let elfList = [];
+      let hobbitList = [];
+      let dwarfList = [];
       for (const page in resp.data.docs) {
         let character = resp.data.docs[page];
         if (character.race === 'Human') {
-          humans.push(character);
+          humanList.push(character);
         }
         if (character.race === 'Elf') {
-          elves.push(character);
+          elfList.push(character);
         }
         if (character.race === 'Hobbit') {
-          hobbits.push(character);
+          hobbitList.push(character);
         }
         if (character.race === 'Dwarf') {
-          dwarfes.push(character);
+          dwarfList.push(character);
         }
       }
+      let characterList = {
+        name: 'Races',
+        children: [
+          {
+            name: 'Elves',
+            children: elfList,
+          },
+          {
+            name: 'Hobbits',
+            children: hobbitList,
+          },
+          {
+            name: 'Dwarfes',
+            children: dwarfList,
+          },
+          {
+            name: 'Humans',
+            children: humanList,
+          },
+        ],
+      };
+      setCharacters(characterList);
     });
   }, []);
 
