@@ -14,7 +14,6 @@ import {
 } from './style/LayoutElements';
 
 //Image
-import HomePic from '../static/img/Home.png';
 
 //Package
 import { Link } from 'react-router-dom';
@@ -25,6 +24,8 @@ import { Button } from 'react-bootstrap';
 const Index = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const images = require.context('../static/img/', true);
+  let indexImageUrl = images(`./${currentTheme.indexPic}.png`);
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -36,7 +37,7 @@ const Index = () => {
         <StyledColumnContainer>
           <Poem currentTheme={currentTheme} />
           <Link to="/code-of-the-sprints">
-            <img src={HomePic} alt="poster" />
+            <img src={indexImageUrl} height={400} width={550} alt="poster" />
           </Link>
           <Link to="/">
             <Button variant={currentTheme.variant}>

@@ -6,7 +6,7 @@ export const LoginProvider = (props) => {
   const [hasPassword, setHasPassword] = useState(false);
 
   return (
-    <LoginContext.Provider value={{hasPassword, setHasPassword}}>
+    <LoginContext.Provider value={{ hasPassword, setHasPassword }}>
       {props.children}
     </LoginContext.Provider>
   );

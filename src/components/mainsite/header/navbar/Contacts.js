@@ -1,14 +1,15 @@
 //Packages
 import React, { useContext, useEffect } from 'react';
-import Tree from 'react-tree-graph';
+import { easeElastic } from 'd3-ease';
+
 import 'react-tree-graph/dist/style.css';
 
 //Context
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
+import { HouseContext } from '../../../contexts/HouseContext';
 
 //Component
 import AppTheme from '../../../../static/util/AppTheme';
-import Houses from '../../../../static/util/Houses';
 import Footer from '../../mainmenu/Footer';
 
 //Styled Component
@@ -16,10 +17,20 @@ import {
   BackgroundContainer,
   StyledColumnContainer,
 } from '../../../style/LayoutElements';
+import { StyledTree, StyledTitle } from '../../../style/ContactsElements';
 
 const Contacts = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const { houses, setHouses } = useContext(HouseContext);
+
+  console.log(houses);
+
+  const nodeClicked = (event, node) => {
+    setHouses({ name: node });
+  };
+
+  useEffect(() => {}, [houses]);
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -29,12 +40,18 @@ const Contacts = () => {
         <StyledColumnContainer>
           <div className={currentTheme.textColor}>Contacts</div>
           <Footer currentTheme={currentTheme} />
-          <Tree
-            data={Houses}
-            margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
-            height={1000}
-            width={1900}
-          ></Tree>
+          <StyledTree
+            data={houses}
+            height={800}
+            animated
+            width={1500}
+            easing={easeElastic}
+            gProps={{
+              onClick: nodeClicked,
+            }}
+          >
+            <StyledTitle>Houses</StyledTitle>
+          </StyledTree>
         </StyledColumnContainer>
       </BackgroundContainer>
     </ThemeProvider>

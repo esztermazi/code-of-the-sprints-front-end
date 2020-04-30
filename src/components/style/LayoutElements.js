@@ -12,10 +12,14 @@ export const StyledColumnContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 90%;
+  width: 90%;
 `;
 
 export const StyledInLineContainer = styled.div`
   display: flex;
   aligh-items: center;
   justify-content: center;
+  height: 90%;
+  width: 90%;
 `;
