@@ -6,7 +6,6 @@ export const HouseContext = createContext();
 
 export const HouseProvider = (props) => {
   const housesDefault = Houses;
-  console.log(housesDefault);
   const [houses, setHouses] = useState(housesDefault);
 
   return (
