@@ -1,6 +1,5 @@
 //Packages
 import React, { useContext, useEffect } from 'react';
-import { easeElastic } from 'd3-ease';
 
 import 'react-tree-graph/dist/style.css';
 
@@ -29,21 +28,18 @@ const Contacts = () => {
   const { rootData, setRootData } = useContext(HouseContext);
 
   const nodeClicked = (event, nodeKey) => {
-    let currentRoot = findNode(rootData, nodeKey);
-    setRootData(currentRoot);
+    if (nodeKey === rootData.id) setRootData(Houses);
+    else {
+      let currentRoot = findNode(rootData, nodeKey);
+      setRootData(currentRoot);
+    }
   };
 
-  const findNode = (currentNode, nodeKey, keyLenght) => {
-    console.log(nodeKey);
-    if (nodeKey === currentNode.id) {
-      return currentNode;
-    }
+  const findNode = (currentNode, nodeKey) => {
+    if (nodeKey === currentNode.id) return currentNode;
     for (let index in currentNode.children) {
       let node = currentNode.children[index];
       let nodeKeyLenght = node.id.length;
-      console.log(nodeKeyLenght);
-      console.log(node.id.substr(0, nodeKeyLenght));
-      console.log(nodeKey.substr(0, nodeKeyLenght));
       if (node.id === nodeKey) return node;
       if (node.id.substr(0, nodeKeyLenght) === nodeKey.substr(0, nodeKeyLenght))
         return findNode(node, nodeKey);
@@ -78,7 +74,6 @@ const Contacts = () => {
             height={800}
             animated
             width={1500}
-            easing={easeElastic}
             duration={600}
             keyProp={'id'}
             gProps={{
