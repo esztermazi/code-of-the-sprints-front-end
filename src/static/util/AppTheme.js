@@ -6,7 +6,7 @@ const AppTheme = {
     cardBackGround: '#F6F6DD',
     indexPic: 'IndexShire',
     logoPic: 'LightThemeLogo',
-    graphStroke: 'green',
+    graphTextColor: '#2E8B57',
   },
   mordor: {
     variant: 'danger',
@@ -15,7 +15,7 @@ const AppTheme = {
     cardBackGround: '#1a1a1a',
     indexPic: 'IndexMordor',
     logoPic: 'DarkThemeLogo',
-    graphStroke: 'white',
+    graphTextColor: '#D3D3D3',
   },
   gondor: {
     variant: 'light',
@@ -24,7 +24,7 @@ const AppTheme = {
     cardBackGround: '#f2f2f2',
     indexPic: 'IndexGondor',
     logoPic: 'LightThemeLogo',
-    graphStroke: 'blue',
+    graphTextColor: '#4f97A3',
   },
 };
 
