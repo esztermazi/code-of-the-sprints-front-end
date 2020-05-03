@@ -1,15 +1,16 @@
+//Packages
 import React, { useContext } from 'react';
 
-//Component
+//Contexts
+import { ThemeContext } from './contexts/ThemeContext';
+
+//Components
 import MainMenu from './mainsite/MainMenu';
 import Header from './mainsite/Header';
 import Footer from './mainsite/Footer';
 import AppTheme from '../static/util/AppTheme';
 
-//Context
-import { ThemeContext } from './contexts/ThemeContext';
-
-//Styled Component
+//Stzled Components
 import {
   BackgroundContainer,
   StyledColumnContainer,

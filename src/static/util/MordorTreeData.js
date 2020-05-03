@@ -1,0 +1,141 @@
+export const MordorTreeData = {
+  id: '1',
+  name: 'military',
+  img: '',
+  age: 0,
+  culture: '',
+  children: [
+    {
+      id: '2',
+      name: 'commanders',
+      img: '',
+      age: 0,
+      culture: '',
+      children: [
+        {
+          id: '2.1',
+          name: 'sauron',
+          img: '',
+          age: 54960,
+          culture: 'maia',
+          children: [
+            {
+              id: '2.1.1',
+              name: 'witch king of angmar',
+              img: '',
+              age: 4200,
+              culture: 'númenórean',
+              children: [
+                {
+                  id: '2.1.1.1',
+                  name: 'khamúl',
+                  img: '',
+                  age: 4200,
+                  culture: 'nazgúl',
+                },
+                {
+                  id: '2.1.1.2',
+                  name: 'mouth of sauron',
+                  img: '',
+                  age: 90,
+                  culture: 'black númenórean',
+                },
+                {
+                  id: '2.1.1.3',
+                  name: 'nazgúls',
+                  img: '',
+                  age: 0,
+                  culture: 'nazgúl',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: '3',
+      name: 'army captains',
+      img: '',
+      age: 0,
+      culture: '',
+      children: [
+        {
+          id: '3.1',
+          name: 'uruks of mordor',
+          img: '',
+          age: 0,
+          culture: 'urukhai',
+          children: [
+            {
+              id: '3.1.1',
+              name: 'orks of the red eye',
+              img: '',
+              age: 0,
+              culture: '',
+            },
+            {
+              id: '3.1.2.1',
+              name: 'corsairs of umbar',
+              img: '',
+              age: 0,
+              culture: '',
+            },
+            {
+              id: '3.1.2.2',
+              name: 'variags',
+              img: '',
+              age: 0,
+              culture: '',
+            },
+            {
+              id: '3.1.2.3',
+              name: 'haradrim',
+              img: '',
+              age: 0,
+              culture: '',
+            },
+            {
+              id: '3.1.2.4',
+              name: 'easterlings',
+              img: '',
+              age: 0,
+              culture: '',
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      id: '4',
+      name: 'creatures',
+      img: '',
+      age: 0,
+      culture: '',
+      children: [
+        {
+          id: '4.1',
+          name: 'Fellbeast',
+          img: '',
+          age: 0,
+          culture: '',
+        },
+        {
+          id: '4.2',
+          name: 'trolls',
+          img: '',
+          age: 0,
+          culture: '',
+        },
+        {
+          id: '4.3',
+          name: 'mûmakil',
+          img: '',
+          age: 0,
+          culture: '',
+        },
+      ],
+    },
+  ],
+};

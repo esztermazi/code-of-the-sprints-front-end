@@ -1,11 +1,12 @@
+//Packages
 import React, { useContext } from 'react';
-import Footer from '../../mainmenu/Footer';
 
-//Context
+//Contexts
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
 
-//Component
+//Components
 import AppTheme from '../../../../static/util/AppTheme';
+import Footer from '../../mainmenu/Footer';
 
 const HighScore = () => {
   const theme = useContext(ThemeContext)[0];
@@ -13,7 +14,6 @@ const HighScore = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div className={currentTheme.textColor}>High Score page</div>
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );

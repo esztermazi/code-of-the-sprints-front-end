@@ -1,25 +1,20 @@
+//Packages
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
-//Component
+//Contexts
+import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
+
+//Components
 import Poem from './mainsite/Poem';
 import AppTheme from '../static/util/AppTheme';
 
-//Context
-import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
-
-//Sytled component
+//Sytled Components
 import {
   BackgroundContainer,
   StyledColumnContainer,
 } from './style/LayoutElements';
-
-//Image
-
-//Package
-import { Link } from 'react-router-dom';
-
-//Bootstrap component
-import { Button } from 'react-bootstrap';
 
 const Index = () => {
   const theme = useContext(ThemeContext)[0];
@@ -37,7 +32,7 @@ const Index = () => {
         <StyledColumnContainer>
           <Poem currentTheme={currentTheme} />
           <Link to="/code-of-the-sprints">
-            <img src={indexImageUrl} height={400} width={550} alt="poster" />
+            <img src={indexImageUrl} height={380} width={550} alt="poster" />
           </Link>
           <Link to="/">
             <Button variant={currentTheme.variant}>

@@ -1,24 +1,25 @@
+//Packages
 import React, { useContext, useState } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
-import WelcomePic from '../static/img/Welcome.gif';
+import { Alert, Button } from 'react-bootstrap';
+import { MicFill } from 'react-bootstrap-icons';
+
+//Contexts
+import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
+import { LoginContext } from './contexts/LoginContext';
 
 //Components
 import AppTheme from '../static/util/AppTheme';
 
-//Context
-import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
-import { LoginContext } from './contexts/LoginContext';
-
-//Sytled component
+//Sytled Components
 import {
   BackgroundContainer,
   StyledColumnContainer,
 } from './style/LayoutElements';
 import { Textarea, MicrophonAlert } from './style/LoginSiteElements';
 
-//Bootstrap component
-import { Alert, Button } from 'react-bootstrap';
-import { MicFill } from 'react-bootstrap-icons';
+//Images
+import WelcomePic from '../static/img/Welcome.gif';
 
 const LoginSite = (props) => {
   const theme = useContext(ThemeContext)[0];
@@ -53,7 +54,11 @@ const LoginSite = (props) => {
     <ThemeProvider value={currentTheme}>
       <BackgroundContainer style={{ backgroundColor: 'rgb(37, 39, 38)' }}>
         <StyledColumnContainer>
-          <img src={WelcomePic} alt="welcomepic"></img>
+          <img
+            src={WelcomePic}
+            alt="welcomepic"
+            style={{ with: '25rem', height: '25rem' }}
+          ></img>
           <Alert variant={currentTheme.variant}>
             <Alert.Heading className="text-center">
               "It's a riddle. Speak friend and enter. What's the Elvish word for

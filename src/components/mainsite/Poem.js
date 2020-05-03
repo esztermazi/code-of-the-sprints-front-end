@@ -1,6 +1,5 @@
+//Packages
 import React from 'react';
-
-//Bootstrap component
 import { Alert } from 'react-bootstrap';
 
 const Poem = (props) => {

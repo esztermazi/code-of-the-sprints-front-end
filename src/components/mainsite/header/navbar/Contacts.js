@@ -1,16 +1,15 @@
 //Packages
 import React, { useContext, useEffect } from 'react';
-
 import 'react-tree-graph/dist/style.css';
+import { Button, Card } from 'react-bootstrap';
 
-//Context
+//Contexts
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
-import { HouseContext } from '../../../contexts/HouseContext';
+import { TreeDataContext } from '../../../contexts/TreeDataContext';
 
-//Component
+//Components
 import AppTheme from '../../../../static/util/AppTheme';
 import Footer from '../../mainmenu/Footer';
-import Houses from '../../../../static/util/Houses';
 
 //Styled Component
 import {
@@ -19,16 +18,16 @@ import {
 } from '../../../style/LayoutElements';
 import { StyledTree } from '../../../style/ContactsElements';
 
-//Bootstrap components
-import { Button, Card } from 'react-bootstrap';
+//CSS
+import '../../../../static/css/TreeGraph.css';
 
 const Contacts = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
-  const { rootData, setRootData } = useContext(HouseContext);
+  const { dataSource, rootData, setRootData } = useContext(TreeDataContext);
 
   const nodeClicked = (event, nodeKey) => {
-    if (nodeKey === rootData.id) setRootData(Houses);
+    if (nodeKey === rootData.id) setRootData(dataSource);
     else {
       let currentRoot = findNode(rootData, nodeKey);
       setRootData(currentRoot);
@@ -47,7 +46,7 @@ const Contacts = () => {
   };
 
   const resetTreeData = () => {
-    setRootData(Houses);
+    setRootData(dataSource);
   };
 
   useEffect(() => {}, [rootData]);
@@ -58,29 +57,33 @@ const Contacts = () => {
         style={{ backgroundColor: currentTheme.bodyBackground }}
       >
         <StyledColumnContainer>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+          <Card style={{ width: '18rem' }} border={currentTheme.variant}>
+            <Card.Header>{rootData.name}</Card.Header>
             <Card.Body>
-              <Card.Title>Name: {rootData.name}</Card.Title>
               <Card.Text>Age: {rootData.age}</Card.Text>
               <Card.Text>Culture: {rootData.culture}</Card.Text>
-              <Button variant={currentTheme.variant} onClick={resetTreeData}>
-                Reset Tree
-              </Button>
             </Card.Body>
+            <Card.Footer className="text-center">
+              <Button variant={currentTheme.variant} onClick={resetTreeData}>
+                Reset
+              </Button>
+            </Card.Footer>
           </Card>
           <StyledTree
             data={rootData}
-            height={800}
+            height={400}
             animated
-            width={1500}
+            width={1400}
             duration={600}
             keyProp={'id'}
             gProps={{
               onClick: nodeClicked,
-              fill: currentTheme.graphTextColor,
-              fontSize: 40,
+              fill: currentTheme.textColor,
+              fontSize: 20,
               cursor: 'pointer',
+            }}
+            circleProps={{
+              fill: 'black',
             }}
           ></StyledTree>
           <Footer currentTheme={currentTheme} />

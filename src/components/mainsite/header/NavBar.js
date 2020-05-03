@@ -1,23 +1,35 @@
-import React, { useContext } from 'react';
-
-//Context
-import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
-
 //Packages
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, Dropdown } from 'react-bootstrap';
+
+//Contexts
+import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
+import { TreeDataContext } from '../../contexts/TreeDataContext';
 
 //Components
 import AppTheme from '../../../static/util/AppTheme';
+import { ShireTreeData as shire } from '../../../static/util/ShireTreeData';
+import { MordorTreeData as mordor } from '../../../static/util/MordorTreeData';
+import { GondorTreeData as gondor } from '../../../static/util/GondorTreeData';
 
-//Bootstrap components
-import { Navbar, Nav, Dropdown } from 'react-bootstrap';
+//Styled Components
+import { StyledNavbarLink } from '../../style/NavbarElements';
 
 const NavBar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
   const currentTheme = AppTheme[theme];
+  const { setDataSource, setRootData } = useContext(TreeDataContext);
+  const dataSources = { shire, mordor, gondor };
 
   const changeTheme = (e) => {
     setTheme(e.target.id);
+    changeContactsDefaultData(dataSources, e.target.id);
+  };
+
+  const changeContactsDefaultData = (dataSources, key) => {
+    setDataSource(dataSources[key]);
+    setRootData(dataSources[key]);
   };
 
   return (
@@ -25,15 +37,27 @@ const NavBar = () => {
       <Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav>
-          <Link to="/profile">
-            <Nav.Item className={currentTheme.textColor}>Profile</Nav.Item>
-          </Link>
-          <Link to="/high-score">
-            <Nav.Item className={currentTheme.textColor}>High score</Nav.Item>
-          </Link>
-          <Link to="/contacts">
-            <Nav.Item className={currentTheme.textColor}>Contacts</Nav.Item>
-          </Link>
+          <StyledNavbarLink
+            to="/profile"
+            color={currentTheme.textColor}
+            hoverColor={currentTheme.textHoverColor}
+          >
+            Profile
+          </StyledNavbarLink>
+          <StyledNavbarLink
+            to="/high-score"
+            color={currentTheme.textColor}
+            hoverColor={currentTheme.textHoverColor}
+          >
+            High score
+          </StyledNavbarLink>
+          <StyledNavbarLink
+            to="/contacts"
+            color={currentTheme.textColor}
+            hoverColor={currentTheme.textHoverColor}
+          >
+            Contacts
+          </StyledNavbarLink>
           <Dropdown>
             <Dropdown.Toggle variant={currentTheme.variant}>
               Theme

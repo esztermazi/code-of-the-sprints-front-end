@@ -1,0 +1,11 @@
+.node circle {
+  fill: #b6c3bc;
+  stroke: #a0b3aa;
+  stroke-width: 1.5px;
+}
+
+path.link {
+  fill: none;
+  stroke: #2d3a34;
+  stroke-width: 1.5px;
+}

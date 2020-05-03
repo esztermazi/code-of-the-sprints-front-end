@@ -1,11 +1,13 @@
+//Packages
 import React, { useContext, useState } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-//Context
+//Contexts
 import { ThemeContext } from './components/contexts/ThemeContext';
 import { LoginContext } from './components/contexts/LoginContext';
-import { HouseProvider } from './components/contexts/HouseContext';
+import { TreeDataProvider } from './components/contexts/TreeDataContext';
 
-//Component
+//Components
 import LoginSite from './components/LoginSite';
 import Index from './components/Index';
 import MainSite from './components/MainSite';
@@ -15,9 +17,6 @@ import TheBlackGate from './components/mainsite/mainmenu/TheBlackGate';
 import Profile from './components/mainsite/header/navbar/Profile';
 import HighScore from './components/mainsite/header/navbar/HighScore';
 import Contacts from './components/mainsite/header/navbar/Contacts';
-
-//Package
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 const App = () => {
   const { hasPassword } = useContext(LoginContext);
@@ -31,15 +30,15 @@ const App = () => {
           render={() => (hasPassword ? false : <Redirect to="/" />)}
         ></Route>
         <Route exact path="/home-of-the-sprints" component={Index} />
-        <Route exact path="/code-of-the-sprints" component={MainSite} />
         <Route exact path="/gate-invaders" component={GateInvaders} />
         <Route exact path="/order-builder" component={OrderBuilder} />
         <Route exact path="/the-black-gate" component={TheBlackGate} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/high-score" component={HighScore} />
-        <HouseProvider>
+        <TreeDataProvider>
+          <Route exact path="/code-of-the-sprints" component={MainSite} />
           <Route exact path="/contacts" component={Contacts} />
-        </HouseProvider>
+        </TreeDataProvider>
       </Router>
     </ThemeContext.Provider>
   );

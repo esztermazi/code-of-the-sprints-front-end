@@ -1,4 +1,4 @@
-const Houses = {
+export const GondorTreeData = {
   id: '1',
   name: 'houses',
   img: '',
@@ -16,7 +16,7 @@ const Houses = {
           id: '2.1',
           name: 'isildur',
           img: '',
-          age: 0,
+          age: 232,
           culture: 'dúnedain',
           children: [
             {
@@ -28,10 +28,19 @@ const Houses = {
               children: [
                 {
                   id: '2.1.1.1',
-                  name: 'aragorn',
+                  name: 'arathorn',
                   img: '',
-                  age: 210,
+                  age: 60,
                   culture: 'dúnedain',
+                  children: [
+                    {
+                      id: '2.1.1.1.1',
+                      name: 'aragorn',
+                      img: '',
+                      age: 210,
+                      culture: 'dúnedain',
+                    },
+                  ],
                 },
               ],
             },
@@ -100,7 +109,7 @@ const Houses = {
           name: 'théoden',
           img: '',
           age: 71,
-          culture: 'dúnedain',
+          culture: 'rohirrim',
           children: [
             {
               id: '4.2.1',
@@ -138,5 +147,3 @@ const Houses = {
     },
   ],
 };
-
-export default Houses;

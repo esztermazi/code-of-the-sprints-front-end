@@ -1,8 +1,9 @@
+//Packages
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-//Component
+//Components
 import { ThemeProvider, ThemeContext } from '../contexts/ThemeContext';
 import AppTheme from '../../static/util/AppTheme';
 

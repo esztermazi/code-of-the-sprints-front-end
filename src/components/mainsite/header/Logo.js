@@ -1,9 +1,10 @@
+//Packages
 import React, { useContext } from 'react';
 
-//Context
+//Contexts
 import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
 
-//Component
+//Components
 import AppTheme from '../../../static/util/AppTheme';
 
 const Logo = () => {

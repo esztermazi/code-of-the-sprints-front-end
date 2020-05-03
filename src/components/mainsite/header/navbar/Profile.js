@@ -1,10 +1,11 @@
+//Packages
 import React, { useContext } from 'react';
 import Footer from '../../mainmenu/Footer';
 
-//Context
+//Contexts
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
 
-//Component
+//Components
 import AppTheme from '../../../../static/util/AppTheme';
 
 const Profile = () => {
@@ -13,7 +14,6 @@ const Profile = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <div className={currentTheme.textColor}>Profile page</div>
       <Footer currentTheme={currentTheme} />
     </ThemeProvider>
   );

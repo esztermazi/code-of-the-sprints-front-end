@@ -1,6 +1,7 @@
+//Packages
 import React from 'react';
 
-//Component
+//Components
 import Logo from '../mainsite/header/Logo';
 import NavBar from '../mainsite/header/NavBar';
 
