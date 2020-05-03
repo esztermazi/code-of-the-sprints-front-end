@@ -1,10 +1,11 @@
 //Packages
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from '../contexts/ThemeContext';
+import { CharacterContext } from '../contexts/CharacterContext';
 
 //Components
 import AppTheme from '../../static/util/AppTheme';
@@ -25,6 +26,23 @@ import TheBlackGatePic from '../../static/img/TheBlackGate.png';
 const MainMenu = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const { character, setCharacterQuotes, quotes } = useContext(
+    CharacterContext
+  );
+
+  const getQuotes = useCallback(() => {
+    let quoteList = [];
+    quotes.forEach((element) => {
+      if (element.character === character._id) {
+        quoteList.push(element);
+      }
+    });
+    setCharacterQuotes(quoteList);
+  }, [character._id, quotes, setCharacterQuotes]);
+
+  useEffect(() => {
+    getQuotes();
+  }, [getQuotes]);
 
   return (
     <ThemeProvider value={currentTheme}>

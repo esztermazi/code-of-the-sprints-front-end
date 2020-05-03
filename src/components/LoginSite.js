@@ -1,5 +1,5 @@
 //Packages
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
 import { Alert, Button } from 'react-bootstrap';
 import { MicFill } from 'react-bootstrap-icons';
@@ -7,6 +7,7 @@ import { MicFill } from 'react-bootstrap-icons';
 //Contexts
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 import { LoginContext } from './contexts/LoginContext';
+import { CharacterContext } from './contexts/CharacterContext';
 
 //Components
 import AppTheme from '../static/util/AppTheme';
@@ -25,6 +26,12 @@ const LoginSite = (props) => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   const { setHasPassword } = useContext(LoginContext);
+  const { fetchCharacters, fetchQuotes } = useContext(CharacterContext);
+
+  useEffect(() => {
+    fetchCharacters('https://the-one-api.herokuapp.com/v1/character');
+    fetchQuotes(`https://the-one-api.herokuapp.com/v1/quote`);
+  }, [fetchCharacters, fetchQuotes]);
 
   const [value, setValue] = useState('');
   const { listen, listening, stop } = useSpeechRecognition({

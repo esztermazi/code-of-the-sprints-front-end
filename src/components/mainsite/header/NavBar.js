@@ -5,6 +5,7 @@ import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 //Contexts
 import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
 import { TreeDataContext } from '../../contexts/TreeDataContext';
+import { CharacterContext } from '../../contexts/CharacterContext';
 
 //Components
 import AppTheme from '../../../static/util/AppTheme';
@@ -14,12 +15,14 @@ import { GondorTreeData as gondor } from '../../../static/util/GondorTreeData';
 
 //Styled Components
 import { StyledNavbarLink } from '../../style/NavbarElements';
+import { AvatarImage } from '../../style/Images';
 
 const NavBar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
   const currentTheme = AppTheme[theme];
   const { setDataSource, setRootData } = useContext(TreeDataContext);
   const dataSources = { shire, mordor, gondor };
+  const { avatar } = useContext(CharacterContext);
 
   const changeTheme = (e) => {
     setTheme(e.target.id);
@@ -74,6 +77,7 @@ const NavBar = () => {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <AvatarImage src={avatar} alt="avatar"></AvatarImage>
         </Nav>
       </Navbar>
     </ThemeProvider>

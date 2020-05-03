@@ -5,70 +5,79 @@ import Axios from 'axios';
 export const CharacterContext = createContext();
 
 export const CharacterProvider = (props) => {
-  const [name, setName] = useState(null);
   const [avatar, setAvatar] = useState({});
-  const [quotes, setQuotes] = useState({});
+  const [quotes, setQuotes] = useState([]);
+  const [characterQuotes, setCharacterQuotes] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  const [character, setCharacter] = useState({});
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';
 
-  const fetchCharacter = useCallback((url) => {
+  const fetchCharacters = useCallback((url) => {
     Axios.get(url, {
       headers: {
         Authorization: `Bearer ${jwtoken}`,
       },
     }).then((resp) => {
-      let humanList = [];
-      let elfList = [];
-      let hobbitList = [];
-      let dwarfList = [];
+      let characterList = [];
       for (const page in resp.data.docs) {
         let character = resp.data.docs[page];
-        if (character.race === 'Human') {
-          humanList.push(character);
+        if (character.name === 'Frodo Baggins') {
+          characterList.push(character);
         }
-        if (character.race === 'Elf') {
-          elfList.push(character);
+        if (character.name === 'Samwise Gamgee') {
+          characterList.push(character);
         }
-        if (character.race === 'Hobbit') {
-          hobbitList.push(character);
+        if (character.name === 'Peregrin Took') {
+          characterList.push(character);
         }
-        if (character.race === 'Dwarf') {
-          dwarfList.push(character);
+        if (character.name === 'Meriadoc Brandybuck') {
+          characterList.push(character);
+        }
+        if (character.name === 'Gandalf') {
+          characterList.push(character);
+        }
+        if (character.name.includes('Aragorn II')) {
+          characterList.push(character);
+        }
+        if (character.name === 'Legolas') {
+          characterList.push(character);
+        }
+        if (character.name === 'Gimli') {
+          characterList.push(character);
+        }
+        if (character.name === 'Boromir') {
+          characterList.push(character);
         }
       }
-      let characterList = {
-        name: 'Races',
-        children: [
-          {
-            name: 'Elves',
-            children: elfList,
-          },
-          {
-            name: 'Hobbits',
-            children: hobbitList,
-          },
-          {
-            name: 'Dwarfes',
-            children: dwarfList,
-          },
-          {
-            name: 'Humans',
-            children: humanList,
-          },
-        ],
-      };
+      setCharacters(characterList);
+    });
+  }, []);
+
+  const fetchQuotes = useCallback((url) => {
+    Axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${jwtoken}`,
+      },
+    }).then((resp) => {
+      setQuotes(resp.data.docs);
     });
   }, []);
 
   return (
     <CharacterContext.Provider
       value={{
-        name,
-        setName,
         avatar,
         setAvatar,
         quotes,
         setQuotes,
-        fetchCharacter,
+        characterQuotes,
+        setCharacterQuotes,
+        characters,
+        setCharacters,
+        character,
+        setCharacter,
+        fetchCharacters,
+        fetchQuotes,
       }}
     >
       {props.children}
