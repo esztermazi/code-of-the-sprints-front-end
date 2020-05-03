@@ -16,21 +16,48 @@ import {
   BackgroundContainer,
   StyledColumnContainer,
 } from './style/LayoutElements';
+import { AvatarImage } from './style/Images';
 
 //Images
+import frodo from '../static/img/avatars/Frodo.png';
+import sam from '../static/img/avatars/Sam.png';
+import pippin from '../static/img/avatars/Pippin.png';
+import merry from '../static/img/avatars/Merry.png';
+import gandalf from '../static/img/avatars/Gandalf.png';
+import aragorn from '../static/img/avatars/Aragorn.png';
+import legolas from '../static/img/avatars/Legolas.png';
+import gimli from '../static/img/avatars/Gimli.png';
+import boromir from '../static/img/avatars/Boromir.png';
 
 const Index = () => {
   const theme = useContext(ThemeContext)[0];
-  const { name, setName } = useContext(CharacterContext);
+  const { name, setName, avatar, setAvatar } = useContext(CharacterContext);
   const currentTheme = AppTheme[theme];
+  const avatars = {
+    frodo,
+    sam,
+    pippin,
+    merry,
+    gandalf,
+    aragorn,
+    legolas,
+    gimli,
+    boromir,
+  };
   const images = require.context('../static/img/', true);
   let indexImageUrl = images(`./${currentTheme.indexPic}.png`);
 
   const changeCharacter = (e) => {
     setName(e.target.id);
+    setAvatar(avatars[e.target.id]);
   };
 
-  useEffect(() => {}, [setName]);
+  const showCaracterPic = (e) => {
+    setName(e.target.id);
+    setAvatar(avatars[e.target.id]);
+  };
+
+  useEffect(() => {}, [name, avatar]);
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -41,40 +68,78 @@ const Index = () => {
       >
         <StyledColumnContainer>
           <Poem currentTheme={currentTheme} />
+          <AvatarImage src={avatar} alt="avatar"></AvatarImage>
           <Dropdown>
             <Dropdown.Toggle variant={currentTheme.variant}>
               Choose character
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item onClick={changeCharacter} id="frodo">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="frodo"
+              >
                 Frodo
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="sam">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="sam"
+              >
                 Sam
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="pippin">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="pippin"
+              >
                 Pippin
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="merry">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="merry"
+              >
                 Merry
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="gandalf">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="gandalf"
+              >
                 Gandalf
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="aragorn">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="aragorn"
+              >
                 Aragorn
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="legolas">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="legolas"
+              >
                 Legolas
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="gimli">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="gimli"
+              >
                 Gimli
               </Dropdown.Item>
-              <Dropdown.Item onClick={changeCharacter} id="boromir">
+              <Dropdown.Item
+                onClick={changeCharacter}
+                onMouseOver={showCaracterPic}
+                id="boromir"
+              >
                 Boromir
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+
           <Link to="/code-of-the-sprints">
             <img src={indexImageUrl} height={380} width={550} alt="poster" />
           </Link>

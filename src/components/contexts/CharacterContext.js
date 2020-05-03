@@ -5,7 +5,7 @@ import Axios from 'axios';
 export const CharacterContext = createContext();
 
 export const CharacterProvider = (props) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(null);
   const [avatar, setAvatar] = useState({});
   const [quotes, setQuotes] = useState({});
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';

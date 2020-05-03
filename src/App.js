@@ -25,25 +25,24 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={themeHook}>
-      <Router>
-        <Route exact path="/" component={LoginSite} />
-        <Route
-          render={() => (hasPassword ? false : <Redirect to="/" />)}
-        ></Route>
-        <Route exact path="/gate-invaders" component={GateInvaders} />
-        <Route exact path="/order-builder" component={OrderBuilder} />
-        <Route exact path="/the-black-gate" component={TheBlackGate} />
+      <TreeDataProvider>
         <CharacterProvider>
-          <Route exact path="/home-of-the-sprints" component={Index} />
-          <Route exact path="/profile" component={Profile} />
+          <Router>
+            <Route exact path="/" component={LoginSite} />
+            <Route
+              render={() => (hasPassword ? false : <Redirect to="/" />)}
+            ></Route>
+            <Route exact path="/gate-invaders" component={GateInvaders} />
+            <Route exact path="/order-builder" component={OrderBuilder} />
+            <Route exact path="/the-black-gate" component={TheBlackGate} />
+            <Route exact path="/home-of-the-sprints" component={Index} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/high-score" component={HighScore} />
+            <Route exact path="/code-of-the-sprints" component={MainSite} />
+            <Route exact path="/contacts" component={Contacts} />
+          </Router>
         </CharacterProvider>
-
-        <Route exact path="/high-score" component={HighScore} />
-        <TreeDataProvider>
-          <Route exact path="/code-of-the-sprints" component={MainSite} />
-          <Route exact path="/contacts" component={Contacts} />
-        </TreeDataProvider>
-      </Router>
+      </TreeDataProvider>
     </ThemeContext.Provider>
   );
 };
