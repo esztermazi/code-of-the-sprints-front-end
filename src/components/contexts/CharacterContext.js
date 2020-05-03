@@ -2,13 +2,15 @@
 import React, { createContext, useState, useCallback } from 'react';
 import Axios from 'axios';
 
-export const CharactersContext = createContext();
+export const CharacterContext = createContext();
 
-export const CharactersProvider = (props) => {
-  const [characters, setCharacters] = useState({});
+export const CharacterProvider = (props) => {
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState({});
+  const [quotes, setQuotes] = useState({});
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';
 
-  const fetchCharacters = useCallback((url) => {
+  const fetchCharacter = useCallback((url) => {
     Axios.get(url, {
       headers: {
         Authorization: `Bearer ${jwtoken}`,
@@ -54,19 +56,22 @@ export const CharactersProvider = (props) => {
           },
         ],
       };
-      setCharacters(characterList);
     });
   }, []);
 
   return (
-    <CharactersContext.Provider
+    <CharacterContext.Provider
       value={{
-        characters,
-        setCharacters,
-        fetchCharacters,
+        name,
+        setName,
+        avatar,
+        setAvatar,
+        quotes,
+        setQuotes,
+        fetchCharacter,
       }}
     >
       {props.children}
-    </CharactersContext.Provider>
+    </CharacterContext.Provider>
   );
 };

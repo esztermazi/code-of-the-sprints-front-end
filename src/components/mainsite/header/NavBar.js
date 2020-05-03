@@ -1,6 +1,5 @@
 //Packages
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 
 //Contexts

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { ThemeContext } from './components/contexts/ThemeContext';
 import { LoginContext } from './components/contexts/LoginContext';
 import { TreeDataProvider } from './components/contexts/TreeDataContext';
+import { CharacterProvider } from './components/contexts/CharacterContext';
 
 //Components
 import LoginSite from './components/LoginSite';
@@ -29,11 +30,14 @@ const App = () => {
         <Route
           render={() => (hasPassword ? false : <Redirect to="/" />)}
         ></Route>
-        <Route exact path="/home-of-the-sprints" component={Index} />
         <Route exact path="/gate-invaders" component={GateInvaders} />
         <Route exact path="/order-builder" component={OrderBuilder} />
         <Route exact path="/the-black-gate" component={TheBlackGate} />
-        <Route exact path="/profile" component={Profile} />
+        <CharacterProvider>
+          <Route exact path="/home-of-the-sprints" component={Index} />
+          <Route exact path="/profile" component={Profile} />
+        </CharacterProvider>
+
         <Route exact path="/high-score" component={HighScore} />
         <TreeDataProvider>
           <Route exact path="/code-of-the-sprints" component={MainSite} />

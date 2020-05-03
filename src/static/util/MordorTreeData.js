@@ -116,7 +116,7 @@ export const MordorTreeData = {
       children: [
         {
           id: '4.1',
-          name: 'Fellbeast',
+          name: 'fellbeast',
           img: '',
           age: 0,
           culture: '',
