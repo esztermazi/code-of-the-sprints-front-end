@@ -20,7 +20,7 @@ It is a personal learning progress management web application with extra tools f
 
 They have to choose an avatar on the index page, after that they are free to start their journey.
 
-They can personalize it more by select a theme:
+They can personalize it more by select a theme:</br>
 ⚬ [Shire](https://en.wikipedia.org/wiki/Shire)</br>
 ⚬ [Mordor](https://en.wikipedia.org/wiki/Mordor)</br>
 ⚬ [Gondor](https://en.wikipedia.org/wiki/Gondor)</br>
@@ -37,8 +37,11 @@ The main menu contains free work-task related games which gives the best practic
 
 #### BagEnd
 
-The contacts page with the graphs and the profile will have 2 functionalities: data manipulation from a separated BackEnd project with the user's company details and Lord of the Rings related info from the FrontEnd side.
-They are also able to view the company team hierarchy and see through the system with the help of the animated graphs. The profile page will also represent company related info as well, with the user's company-related attributes. There will be a high score page where they can follow their progress how much point they gained in the games. When they gain a certain point it means their quality reaches the expected level. If their quality is outstanding then they can get a gold star([leaf of Lorien](https://lotr.fandom.com/wiki/Leaves_of_Lorien)), as well , as [Aragorn](https://en.wikipedia.org/wiki/Aragorn) said: "Not idly do the leaves of Lorien fall".
+The contacts page with the graphs and the profile will have 2 functionalities: data manipulation from a separated BackEnd project with the user's company details and Lord of the Rings related info from the FrontEnd side.</br>
+They are also able to view the company team hierarchy and see through the system with the help of the animated graphs. The profile page will also represent company related info as well, with the user's company-related attributes. </br>
+There will be a high score page where they can follow their progress how much point they gained in the games. When they gain a certain point it means their quality reaches the expected level. If their quality is outstanding then they can get a gold star([leaf of Lorien](https://lotr.fandom.com/wiki/Leaves_of_Lorien)), as well , as [Aragorn](https://en.wikipedia.org/wiki/Aragorn) said:</br>
+
+<p align="center">"Not idly do the leaves of Lorien fall".<p>
 
 ### Motivations for building this project:
 
@@ -46,5 +49,5 @@ Familiarize myself and deepen my knowledge in various FrontEnd technologies and 
 
 ### Presentation
 
-At last but not least, here is current google slide my presentation regarding this project and its current state:
+At last but not least, here is current google slide my presentation regarding this project and its current state:</br>
 [View here](https://docs.google.com/presentation/d/e/2PACX-1vSSgKaglVnTaLw02TAHkyU7ExanR7fx8qtz6DGykNJit08sYteLJd75LsG-u8MACgXek1Hzf3lWaoe6/pub?start=true&loop=false&delayms=5000)
