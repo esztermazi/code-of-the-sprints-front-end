@@ -20,11 +20,7 @@ const MainSite = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   return (
-    <BackgroundContainer
-      style={{
-        backgroundColor: currentTheme.bodyBackground,
-      }}
-    >
+    <BackgroundContainer color={currentTheme.bodyBackground}>
       <StyledColumnContainer>
         <Header />
         <MainMenu />

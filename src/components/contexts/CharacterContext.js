@@ -5,11 +5,11 @@ import Axios from 'axios';
 export const CharacterContext = createContext();
 
 export const CharacterProvider = (props) => {
-  const [avatar, setAvatar] = useState({});
+  const [avatar, setAvatar] = useState(null);
   const [quotes, setQuotes] = useState([]);
   const [characterQuotes, setCharacterQuotes] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const [character, setCharacter] = useState({});
+  const [character, setCharacter] = useState(null);
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';
 
   const fetchCharacters = useCallback((url) => {

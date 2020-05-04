@@ -16,16 +16,15 @@ import {
   StyledColumnContainer,
 } from '../../../style/LayoutElements';
 import { AvatarImage } from '../../../style/Images';
-import { StyledCardText } from '../../../style/MainMenuElements';
-import { StyledNavigationButton } from '../../../style/ProfileElements';
+import {
+  StyledNavigationButton,
+  StyledText,
+} from '../../../style/ProfileElements';
 
 const Profile = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   const { character, avatar, characterQuotes } = useContext(CharacterContext);
-
-  console.log(characterQuotes);
-  console.log(character);
 
   const openNewTab = () => {
     window.open(character.wikiUrl);
@@ -33,15 +32,15 @@ const Profile = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer
-        style={{
-          backgroundColor: currentTheme.bodyBackground,
-        }}
-      >
+      <BackgroundContainer color={currentTheme.bodyBackground}>
         <StyledColumnContainer>
-          <AvatarImage src={avatar} alt="avatar"></AvatarImage>
-          <StyledCardText>{character.name}</StyledCardText>
-          <StyledCardText>{character.race}</StyledCardText>
+          <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
+          <StyledText color={currentTheme.textColor}>
+            {character.name}
+          </StyledText>
+          <StyledText color={currentTheme.textColor}>
+            {character.race}
+          </StyledText>
           <StyledNavigationButton
             onClick={openNewTab}
             color={currentTheme.textColor}

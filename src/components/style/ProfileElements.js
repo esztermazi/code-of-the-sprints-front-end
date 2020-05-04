@@ -9,4 +9,11 @@ export const StyledNavigationButton = styled.button`
   &:hover {
     color: ${(props) => props.textHoverColor};
   }
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const StyledText = styled.p`
+  color: ${(props) => props.color};
 `;

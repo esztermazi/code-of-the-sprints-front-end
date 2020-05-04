@@ -77,7 +77,7 @@ const NavBar = () => {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <AvatarImage src={avatar} alt="avatar"></AvatarImage>
+          <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
         </Nav>
       </Navbar>
     </ThemeProvider>

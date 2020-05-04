@@ -12,3 +12,12 @@ export const StyledNavbarLink = styled(Link)`
     text-decoration: none;
   }
 `;
+
+export const StyledLink = styled(Link)`
+  color: ${(props) => props.color};
+  text-decoration: none;
+  &:hover {
+    color: ${(props) => props.hoverColor};
+    text-decoration: none;
+  }
+`;

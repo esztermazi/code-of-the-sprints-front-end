@@ -107,7 +107,7 @@ const MainMenu = () => {
             </StyledCardTitle>
             <StyledCardText textHoverColor={currentTheme.textHoverColor}>
               "I don't think Gandalf meant for us to come this way. Frodo: He
-              didn't mean for a lot of things to happen, Sam... but they did.""
+              didn't mean for a lot of things to happen, Sam... but they did."
             </StyledCardText>
           </StyledCardBody>
         </Card>

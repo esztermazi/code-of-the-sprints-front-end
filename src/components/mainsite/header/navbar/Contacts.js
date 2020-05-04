@@ -53,9 +53,7 @@ const Contacts = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer
-        style={{ backgroundColor: currentTheme.bodyBackground }}
-      >
+      <BackgroundContainer color={currentTheme.bodyBackground}>
         <StyledColumnContainer>
           <Card style={{ width: '18rem' }} border={currentTheme.variant}>
             <Card.Header>{rootData.name}</Card.Header>

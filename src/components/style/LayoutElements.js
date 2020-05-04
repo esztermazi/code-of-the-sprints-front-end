@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 export const BackgroundContainer = styled.div`
+  background-color: ${(props) => props.color};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,7 @@
 //Packages
 import React from 'react';
 import { Alert } from 'react-bootstrap';
+import { ArrowDown } from 'react-bootstrap-icons';
 
 const Poem = (props) => {
   return (
@@ -17,9 +18,10 @@ const Poem = (props) => {
         <br></br>
         Shift to bring them all and in the darkness bind them.<br></br>
       </p>
-
       <hr />
-      <p className="mb-0 text-center">Start your journey ↓</p>
+      <p className="mb-0 text-center">
+        Select your role in the fellowship ! <ArrowDown />
+      </p>
     </Alert>
   );
 };
