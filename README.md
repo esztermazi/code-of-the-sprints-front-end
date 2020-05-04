@@ -1,4 +1,4 @@
-## Code of the sprints (front-end)
+## Code of the sprints (FrontEnd)
 
 ![](https://github.com/esztermazi/code-of-the-sprints-front-end/blob/master/src/static/img/DarkThemeLogo.png)
 
