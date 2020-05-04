@@ -1,65 +1,50 @@
 ## Code of the sprints (front-end)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![](https://github.com/esztermazi/code-of-the-sprints-front-end/blob/master/src/static/img/DarkThemeLogo.png)
 
-### Motivations for building this project:
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Technologies used:
 
-⚬ React
-⚬ JavaScript
-⚬ Bootstrap CSS library.
-⚬ Styled components
+⚬ [Node.js](https://nodejs.org/en/)</br>
+⚬ [React](https://reactjs.org/)</br>
+⚬ [JavaScript](https://devdocs.io/javascript/)</br>
+⚬ [React-Speech-Kit](https://www.npmjs.com/package/react-speech-kit)</br>
+⚬ [React-Tree-Graph](https://www.npmjs.com/package/react-tree-graph)</br>
+⚬ [React-Bootstrap](https://react-bootstrap.github.io/)</br>
+⚬ [Styled components](https://styled-components.com/)</br>
 
-### Available Scripts
+This repository contains the Frontend for the website called Code of the Sprints. It is one of my pet projects which aims to simulate a training during your first weeks at a new company in an entertaining way.
 
-In the project directory, you can run:
+It is a personal learning progress management web application with extra tools from the amazing world of [Tolkien's](https://en.wikipedia.org/wiki/J._R._R._Tolkien) fantasy-novel series, [The Lord of the Rings](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings). Users are only able to login if they can resolve the riddle at the welcome site by using voice recognition.
 
-### `npm start`
+They have to choose an avatar on the index page, after that they are free to start their journey.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+They can personalize it more by select a theme:
+⚬ [Shire](https://en.wikipedia.org/wiki/Shire)</br>
+⚬ [Mordor](https://en.wikipedia.org/wiki/Mordor)</br>
+⚬ [Gondor](https://en.wikipedia.org/wiki/Gondor)</br>
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+They are also able to view the chosen team related tribe or family hierarchy trough animated graphs.
 
-### `npm test`
+On the Profile page they can view movie quotes and some attributes regarding their chosen avatar.
 
-Launches the test runner in the interactive watch mode.
-See the section about [running tests](https://create-react-app.dev/docs/running-tests/) for more information.
+### Future plans
 
-### `npm run build`
+#### OrkEnd
 
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The main menu contains free work-task related games which gives the best practice to a newcomer to adapt the rules and policies regarding his/her position while he/she do not have access to all of the needed softwares or the senior colleagues are busy at the moment or just to have fun.
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+#### BagEnd
 
-See the section about deployment for more information.
+The contacts page with the graphs and the profile will have 2 functionalities: data manipulation from a separated BackEnd project with the user's company details and Lord of the Rings related info from the FrontEnd side.
+They are also able to view the company team hierarchy and see through the system with the help of the animated graphs. The profile page will also represent company related info as well, with the user's company-related attributes. There will be a high score page where they can follow their progress how much point they gained in the games. When they gain a certain point it means their quality reaches the expected level. If their quality is outstanding then they can get a gold star([leaf of Lorien](https://lotr.fandom.com/wiki/Leaves_of_Lorien)), as well , as [Aragorn](https://en.wikipedia.org/wiki/Aragorn) said: "Not idly do the leaves of Lorien fall".
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Motivations for building this project:
 
-### Analyzing the Bundle Size
+Familiarize myself and deepen my knowledge in various FrontEnd technologies and libraries (React, JavaScript, CSS, Styled-Components) and experimenting with the [LOTR API](https://the-one-api.herokuapp.com/documentation). Also to make a gift to my previous colleagues about my last workplace which gave the idea to build this project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Presentation
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+At last but not least, here is current google slide my presentation regarding this project and its current state:
+[View here](https://docs.google.com/presentation/d/e/2PACX-1vSSgKaglVnTaLw02TAHkyU7ExanR7fx8qtz6DGykNJit08sYteLJd75LsG-u8MACgXek1Hzf3lWaoe6/pub?start=true&loop=false&delayms=5000)
