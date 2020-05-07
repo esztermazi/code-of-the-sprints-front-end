@@ -19,6 +19,7 @@ import { AvatarImage } from '../../../style/Images';
 import {
   StyledNavigationButton,
   StyledText,
+  StyledTable,
 } from '../../../style/ProfileElements';
 
 const Profile = () => {
@@ -35,7 +36,7 @@ const Profile = () => {
       <BackgroundContainer color={currentTheme.bodyBackground}>
         <StyledColumnContainer>
           <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
-          <StyledText color={currentTheme.textColor}>
+          <StyledText color={currentTheme.borderColor}>
             {character.name}
           </StyledText>
           <StyledText color={currentTheme.textColor}>
@@ -48,7 +49,13 @@ const Profile = () => {
           >
             Wanna know more?
           </StyledNavigationButton>
-          <Table striped bordered hover>
+          <StyledTable
+            color={currentTheme.textColor}
+            borderColor={currentTheme.borderColor}
+            itemBackGround={currentTheme.itemBackGround}
+            itemHoverBackGround={currentTheme.itemHoverBackGround}
+            tableHeaderTextColor={currentTheme.tableHeaderTextColor}
+          >
             <thead>
               <tr>
                 <th>Quotes</th>
@@ -61,7 +68,7 @@ const Profile = () => {
                 </tr>
               ))}
             </tbody>
-          </Table>
+          </StyledTable>
           <Footer currentTheme={currentTheme} />
         </StyledColumnContainer>
       </BackgroundContainer>

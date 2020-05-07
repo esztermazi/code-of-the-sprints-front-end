@@ -50,7 +50,7 @@ const MainMenu = () => {
         <Card
           style={{
             width: '18rem',
-            backgroundColor: currentTheme.cardBackGround,
+            backgroundColor: currentTheme.itemBackGround,
           }}
           className={currentTheme.textColor}
         >
@@ -70,7 +70,7 @@ const MainMenu = () => {
         <Card
           style={{
             width: '18rem',
-            backgroundColor: currentTheme.cardBackGround,
+            backgroundColor: currentTheme.itemBackGround,
           }}
           className={currentTheme.textColor}
         >
@@ -90,7 +90,7 @@ const MainMenu = () => {
         <Card
           style={{
             width: '18rem',
-            backgroundColor: currentTheme.cardBackGround,
+            backgroundColor: currentTheme.itemBackGround,
           }}
           className={currentTheme.textColor}
         >
