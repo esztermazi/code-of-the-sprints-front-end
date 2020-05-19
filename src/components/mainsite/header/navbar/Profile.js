@@ -28,27 +28,94 @@ const Profile = () => {
   const { character, avatar, characterQuotes, page, setPage } = useContext(
     CharacterContext
   );
-  const quotesperPage = 5;
+  const quotesPerPage = 5;
+  const firstPage = 1;
+  const lastpage = Math.round(characterQuotes.length / quotesPerPage);
 
   const openNewTab = () => {
     window.open(character.wikiUrl);
   };
 
-  const pageChanged = (event) => {
-    console.log(characterQuotes);
-    if (
-      event.target.innerText === 'Previous' ||
-      event.target.innerText === '‹'
+  const changePage = useCallback(
+    (event) => {
+      if (
+        event.target.innerText === '‹\nPrevious' ||
+        event.target.innerText === '‹'
+      ) {
+        setPage(page - 1);
+      } else if (
+        event.target.innerText === '›\nNext' ||
+        event.target.innerText === '›'
+      ) {
+        setPage(page + 1);
+      } else if (
+        event.target.innerText === '«\nFirst' ||
+        event.target.innerText === '«'
+      ) {
+        setPage(firstPage);
+      } else if (
+        event.target.innerText === '…\nMore' ||
+        event.target.innerText === '…'
+      ) {
+        console.log(event.target);
+        if (event.target.name === 'prev-five') {
+          setPage(page - quotesPerPage);
+        } else {
+          setPage(page + quotesPerPage);
+        }
+      } else if (
+        event.target.innerText === '»\nLast' ||
+        event.target.innerText === '»'
+      ) {
+        setPage(lastpage);
+      } else {
+        setPage(parseInt(event.target.innerText));
+      }
+    },
+    [lastpage, page, setPage]
+  );
+
+  const setPagination = useCallback(() => {
+    let items = [];
+
+    if (page < quotesPerPage) {
+      for (let i = firstPage + 1; i < page + quotesPerPage; i++) {
+        items.push(
+          <StyledPagination.Item onClick={changePage}>
+            {i}
+          </StyledPagination.Item>
+        );
+      }
+    } else if (
+      page >=
+      Math.round(characterQuotes.length / quotesPerPage) - quotesPerPage
     ) {
-      setPage(page - 1);
+      for (let i = lastpage - quotesPerPage - 1; i < lastpage; i++) {
+        items.push(
+          <StyledPagination.Item onClick={changePage}>
+            {i}
+          </StyledPagination.Item>
+        );
+      }
     } else {
-      setPage(event.target.innerText);
+      for (
+        let i = Math.round(page - quotesPerPage / 2);
+        i < Math.round(page + quotesPerPage / 2);
+        i++
+      ) {
+        items.push(
+          <StyledPagination.Item onClick={changePage}>
+            {i}
+          </StyledPagination.Item>
+        );
+      }
     }
-  };
+    return items;
+  }, [changePage, characterQuotes.length, lastpage, page]);
 
-  
+  useEffect(() => {}, [page, setPagination]);
 
-  useEffect(() => {}, [page]);
+  let items = setPagination();
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -68,18 +135,42 @@ const Profile = () => {
           >
             Wanna know more?
           </StyledNavigationButton>
-          <StyledPagination onClick={pageChanged}>
-            <StyledPagination.First />
-            <StyledPagination.Prev />
-            <StyledPagination.Item>{1}</StyledPagination.Item>
-            <StyledPagination.Item>{2}</StyledPagination.Item>
-            <StyledPagination.Item>{3}</StyledPagination.Item>
-            <StyledPagination.Ellipsis />
-            <StyledPagination.Item>
-              {Math.floor(characterQuotes.length / quotesperPage)}
+          <StyledPagination>
+            {page !== 1 ? (
+              <React.Fragment>
+                <StyledPagination.First onClick={changePage} />
+                <StyledPagination.Prev onClick={changePage} />
+              </React.Fragment>
+            ) : (
+              <StyledPagination.Prev disabled />
+            )}
+            <StyledPagination.Item onClick={changePage}>
+              {firstPage}
             </StyledPagination.Item>
-            <StyledPagination.Next />
-            <StyledPagination.Last />
+            {page > quotesPerPage ? (
+              <StyledPagination.Ellipsis
+                name="prev-five"
+                onClick={changePage}
+              />
+            ) : null}
+            {items}
+            {page < lastpage - quotesPerPage ? (
+              <StyledPagination.Ellipsis
+                name="next-five"
+                onClick={changePage}
+              />
+            ) : null}
+            <StyledPagination.Item onClick={changePage}>
+              {lastpage}
+            </StyledPagination.Item>
+            {page !== lastpage ? (
+              <React.Fragment>
+                <StyledPagination.Next onClick={changePage} />
+                <StyledPagination.Last onClick={changePage} />
+              </React.Fragment>
+            ) : (
+              <StyledPagination.Next disabled />
+            )}
           </StyledPagination>
           <StyledTable
             color={currentTheme.textColor}
@@ -96,8 +187,8 @@ const Profile = () => {
             <tbody>
               {characterQuotes
                 .slice(
-                  page * quotesperPage - quotesperPage,
-                  page * quotesperPage
+                  page * quotesPerPage - quotesPerPage,
+                  page * quotesPerPage
                 )
                 .map((quote) => (
                   <tr>
