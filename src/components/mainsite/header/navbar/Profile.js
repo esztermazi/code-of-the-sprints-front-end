@@ -1,7 +1,6 @@
 //Packages
 import React, { useContext, useEffect, useCallback } from 'react';
 import Footer from '../../mainmenu/Footer';
-import { Table } from 'react-bootstrap';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
@@ -19,17 +18,37 @@ import { AvatarImage } from '../../../style/Images';
 import {
   StyledNavigationButton,
   StyledText,
+  StyledPagination,
   StyledTable,
 } from '../../../style/ProfileElements';
 
 const Profile = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
-  const { character, avatar, characterQuotes } = useContext(CharacterContext);
+  const { character, avatar, characterQuotes, page, setPage } = useContext(
+    CharacterContext
+  );
+  const quotesperPage = 5;
 
   const openNewTab = () => {
     window.open(character.wikiUrl);
   };
+
+  const pageChanged = (event) => {
+    console.log(characterQuotes);
+    if (
+      event.target.innerText === 'Previous' ||
+      event.target.innerText === '‹'
+    ) {
+      setPage(page - 1);
+    } else {
+      setPage(event.target.innerText);
+    }
+  };
+
+  
+
+  useEffect(() => {}, [page]);
 
   return (
     <ThemeProvider value={currentTheme}>
@@ -49,6 +68,19 @@ const Profile = () => {
           >
             Wanna know more?
           </StyledNavigationButton>
+          <StyledPagination onClick={pageChanged}>
+            <StyledPagination.First />
+            <StyledPagination.Prev />
+            <StyledPagination.Item>{1}</StyledPagination.Item>
+            <StyledPagination.Item>{2}</StyledPagination.Item>
+            <StyledPagination.Item>{3}</StyledPagination.Item>
+            <StyledPagination.Ellipsis />
+            <StyledPagination.Item>
+              {Math.floor(characterQuotes.length / quotesperPage)}
+            </StyledPagination.Item>
+            <StyledPagination.Next />
+            <StyledPagination.Last />
+          </StyledPagination>
           <StyledTable
             color={currentTheme.textColor}
             borderColor={currentTheme.borderColor}
@@ -62,11 +94,16 @@ const Profile = () => {
               </tr>
             </thead>
             <tbody>
-              {characterQuotes.slice(0, 5).map((quote) => (
-                <tr>
-                  <td>"{quote.dialog}"</td>
-                </tr>
-              ))}
+              {characterQuotes
+                .slice(
+                  page * quotesperPage - quotesperPage,
+                  page * quotesperPage
+                )
+                .map((quote) => (
+                  <tr>
+                    <td>"{quote.dialog}"</td>
+                  </tr>
+                ))}
             </tbody>
           </StyledTable>
           <Footer currentTheme={currentTheme} />

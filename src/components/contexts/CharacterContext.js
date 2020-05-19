@@ -10,6 +10,7 @@ export const CharacterProvider = (props) => {
   const [characterQuotes, setCharacterQuotes] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [character, setCharacter] = useState(null);
+  const [page, setPage] = useState(1);
   const jwtoken = 'HqWKrGhVEPjdE426i8wx';
 
   const fetchCharacters = useCallback((url) => {
@@ -78,6 +79,8 @@ export const CharacterProvider = (props) => {
         setCharacter,
         fetchCharacters,
         fetchQuotes,
+        page,
+        setPage,
       }}
     >
       {props.children}
