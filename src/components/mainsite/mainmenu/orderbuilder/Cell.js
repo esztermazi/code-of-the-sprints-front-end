@@ -1,6 +1,16 @@
 //Packages
 import React from 'react';
 
-const Cell = ({ type }) => <div>cell</div>;
+//Components
+import { DocTypes } from '../../../../static/util/OrderBuilderDocTypes';
+
+//Styled Components
+import { StyledCell } from '../../../style/OrderBuilderElements';
+
+const Cell = ({ type }) => (
+  <StyledCell type={type} color={DocTypes[type].color}>
+    cell
+  </StyledCell>
+);
 
 export default Cell;

@@ -14,6 +14,10 @@ import { createStage } from './orderbuilder/GameHelper';
 
 //Styled Components
 import { BackgroundContainer } from '../../style/LayoutElements';
+import {
+  StyledWrapper,
+  StyledOrderBuilder,
+} from '../../style/OrderBuilderElements';
 
 const OrderBuilder = () => {
   const theme = useContext(ThemeContext)[0];
@@ -22,14 +26,18 @@ const OrderBuilder = () => {
   return (
     <ThemeProvider value={currentTheme}>
       <BackgroundContainer color={currentTheme.bodyBackground}>
-        <Stage stage={createStage()} />
-        <aside>
-          <Display text="Score" />
-          <Display text="Rows" />
-          <Display text="Level" />
-          <StartButton />
-        </aside>
-        <Footer currentTheme={currentTheme} />
+        <StyledWrapper>
+          <StyledOrderBuilder>
+            <Stage stage={createStage()} />
+            <aside>
+              <Display text="Score" />
+              <Display text="Rows" />
+              <Display text="Level" />
+              <StartButton />
+            </aside>
+            <Footer currentTheme={currentTheme} />
+          </StyledOrderBuilder>
+        </StyledWrapper>
       </BackgroundContainer>
     </ThemeProvider>
   );
