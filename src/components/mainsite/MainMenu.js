@@ -52,7 +52,6 @@ const MainMenu = () => {
             width: '18rem',
             backgroundColor: currentTheme.itemBackGround,
           }}
-          className={currentTheme.textColor}
         >
           <Link to="/gate-invaders">
             <Card.Img variant="top" src={GateInvadersPic} alt="gate-invaders" />

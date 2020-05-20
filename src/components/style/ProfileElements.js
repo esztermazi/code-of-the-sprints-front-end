@@ -1,6 +1,5 @@
 //Packages
 import styled from 'styled-components';
-import { Pagination } from 'react-bootstrap';
 
 export const StyledNavigationButton = styled.button`
   color: ${(props) => props.color};
@@ -19,11 +18,37 @@ export const StyledText = styled.p`
   color: ${(props) => props.color};
 `;
 
-export const StyledPagination = styled(Pagination)`
-  padding-top: 80px;
-  padding-bottom: 10px;
+export const StyledPagination = styled.div`
+  display: inline-block;
+  color: ${(props) => props.color};
+  a {
+    background-color: ${(props) => props.itemBackGround};
+  }
 `;
 
+export const StyledPaginationItem = styled.a`
+  float: left;
+  padding: 8px 16px;
+  margin: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border-radius: 7px;
+  &:hover {
+    color: #d3d3d3 !important;
+    cursor: pointer;
+  }
+`;
+
+export const DisabledPaginationItem = styled.a`
+  color: #ddd !important;
+  float: left;
+  margin: 3px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: not-allowed;
+  border-radius: 7px;
+`;
 
 export const StyledTable = styled.table`
   color: ${(props) => props.color};

@@ -1,6 +1,13 @@
 //Packages
 import React, { useContext, useEffect, useCallback } from 'react';
 import Footer from '../../mainmenu/Footer';
+import {
+  ChevronRight,
+  ChevronLeft,
+  ChevronDoubleRight,
+  ChevronDoubleLeft,
+  ThreeDots,
+} from 'react-bootstrap-icons';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from '../../../contexts/ThemeContext';
@@ -19,6 +26,8 @@ import {
   StyledNavigationButton,
   StyledText,
   StyledPagination,
+  StyledPaginationItem,
+  DisabledPaginationItem,
   StyledTable,
 } from '../../../style/ProfileElements';
 
@@ -38,35 +47,17 @@ const Profile = () => {
 
   const changePage = useCallback(
     (event) => {
-      if (
-        event.target.innerText === '‹\nPrevious' ||
-        event.target.innerText === '‹'
-      ) {
+      if (event.target.name === 'prev') {
         setPage(page - 1);
-      } else if (
-        event.target.innerText === '›\nNext' ||
-        event.target.innerText === '›'
-      ) {
+      } else if (event.target.name === 'next') {
         setPage(page + 1);
-      } else if (
-        event.target.innerText === '«\nFirst' ||
-        event.target.innerText === '«'
-      ) {
+      } else if (event.target.name === 'first') {
         setPage(firstPage);
-      } else if (
-        event.target.innerText === '…\nMore' ||
-        event.target.innerText === '…'
-      ) {
-        console.log(event.target);
-        if (event.target.name === 'prev-five') {
-          setPage(page - quotesPerPage);
-        } else {
-          setPage(page + quotesPerPage);
-        }
-      } else if (
-        event.target.innerText === '»\nLast' ||
-        event.target.innerText === '»'
-      ) {
+      } else if (event.target.name === 'prev-five') {
+        setPage(page - quotesPerPage);
+      } else if (event.target.name === 'next-five') {
+        setPage(page + quotesPerPage);
+      } else if (event.target.name === 'last') {
         setPage(lastpage);
       } else {
         setPage(parseInt(event.target.innerText));
@@ -81,9 +72,7 @@ const Profile = () => {
     if (page < quotesPerPage) {
       for (let i = firstPage + 1; i < page + quotesPerPage; i++) {
         items.push(
-          <StyledPagination.Item onClick={changePage}>
-            {i}
-          </StyledPagination.Item>
+          <StyledPaginationItem onClick={changePage}>{i}</StyledPaginationItem>
         );
       }
     } else if (
@@ -92,9 +81,12 @@ const Profile = () => {
     ) {
       for (let i = lastpage - quotesPerPage - 1; i < lastpage; i++) {
         items.push(
-          <StyledPagination.Item onClick={changePage}>
+          <StyledPaginationItem
+            color={currentTheme.textColor}
+            onClick={changePage}
+          >
             {i}
-          </StyledPagination.Item>
+          </StyledPaginationItem>
         );
       }
     } else {
@@ -104,14 +96,23 @@ const Profile = () => {
         i++
       ) {
         items.push(
-          <StyledPagination.Item onClick={changePage}>
+          <StyledPaginationItem
+            color={currentTheme.textColor}
+            onClick={changePage}
+          >
             {i}
-          </StyledPagination.Item>
+          </StyledPaginationItem>
         );
       }
     }
     return items;
-  }, [changePage, characterQuotes.length, lastpage, page]);
+  }, [
+    changePage,
+    characterQuotes.length,
+    currentTheme.textColor,
+    lastpage,
+    page,
+  ]);
 
   useEffect(() => {}, [page, setPagination]);
 
@@ -135,41 +136,60 @@ const Profile = () => {
           >
             Wanna know more?
           </StyledNavigationButton>
-          <StyledPagination>
+          <StyledPagination
+            color={currentTheme.textColor}
+            itemBackGround={currentTheme.itemBackGround}
+          >
             {page !== 1 ? (
               <React.Fragment>
-                <StyledPagination.First onClick={changePage} />
-                <StyledPagination.Prev onClick={changePage} />
+                <StyledPaginationItem name="first" onClick={changePage}>
+                  <ChevronDoubleLeft name="first" />
+                </StyledPaginationItem>
+                <StyledPaginationItem name="prev" onClick={changePage}>
+                  <ChevronLeft name="prev" />
+                </StyledPaginationItem>
               </React.Fragment>
             ) : (
-              <StyledPagination.Prev disabled />
+              <DisabledPaginationItem name="prev">
+                <ChevronLeft name="prev" />
+              </DisabledPaginationItem>
             )}
-            <StyledPagination.Item onClick={changePage}>
+            <StyledPaginationItem
+              color={currentTheme.color}
+              onClick={changePage}
+            >
               {firstPage}
-            </StyledPagination.Item>
+            </StyledPaginationItem>
             {page > quotesPerPage ? (
-              <StyledPagination.Ellipsis
-                name="prev-five"
-                onClick={changePage}
-              />
+              <StyledPaginationItem name="prev-five" onClick={changePage}>
+                <ThreeDots name="prev-five" />
+              </StyledPaginationItem>
             ) : null}
             {items}
             {page < lastpage - quotesPerPage ? (
-              <StyledPagination.Ellipsis
-                name="next-five"
-                onClick={changePage}
-              />
+              <StyledPaginationItem name="next-five" onClick={changePage}>
+                <ThreeDots name="next-five" />
+              </StyledPaginationItem>
             ) : null}
-            <StyledPagination.Item onClick={changePage}>
+            <StyledPaginationItem
+              color={currentTheme.color}
+              onClick={changePage}
+            >
               {lastpage}
-            </StyledPagination.Item>
+            </StyledPaginationItem>
             {page !== lastpage ? (
               <React.Fragment>
-                <StyledPagination.Next onClick={changePage} />
-                <StyledPagination.Last onClick={changePage} />
+                <StyledPaginationItem name="next" onClick={changePage}>
+                  <ChevronRight name="next" />
+                </StyledPaginationItem>
+                <StyledPaginationItem name="last" onClick={changePage}>
+                  <ChevronDoubleRight name="last" />
+                </StyledPaginationItem>
               </React.Fragment>
             ) : (
-              <StyledPagination.Next disabled />
+              <DisabledPaginationItem name="next">
+                <ChevronRight name="next" />
+              </DisabledPaginationItem>
             )}
           </StyledPagination>
           <StyledTable
