@@ -1,6 +1,9 @@
 //Packages
 import React from 'react';
 
-const Display = ({ gameOver, text }) => <div>{text}</div>;
+//Styled Components
+import { StyledDisplay } from '../../../style/OrderBuilderElements';
+
+const Display = ({ gameOver, text }) => <StyledDisplay>{text}</StyledDisplay>;
 
 export default Display;
