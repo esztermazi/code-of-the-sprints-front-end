@@ -34,8 +34,8 @@ const OrderBuilder = () => {
               <Display text="Rows" />
               <Display text="Level" />
               <StartButton />
+              <Footer currentTheme={currentTheme} />
             </aside>
-            <Footer currentTheme={currentTheme} />
           </StyledOrderBuilder>
         </StyledWrapper>
       </BackgroundContainer>

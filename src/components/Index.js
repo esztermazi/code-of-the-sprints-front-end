@@ -2,7 +2,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, Button } from 'react-bootstrap';
-import { ArrowRight } from 'react-bootstrap-icons';
+import { BoxArrowInLeft, BoxArrowInRight } from 'react-bootstrap-icons';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
@@ -176,12 +176,12 @@ const Index = () => {
               color={currentTheme.textColor}
               hoverColor={currentTheme.textHoverColor}
             >
-              Start journey <ArrowRight />
+              Start journey <BoxArrowInRight />
             </StyledLink>
           ) : null}
           <Link to="/">
             <Button variant={currentTheme.variant}>
-              ￩I Want to speake Elvish again!
+              <BoxArrowInLeft /> Doors of Durin
             </Button>
           </Link>
         </StyledColumnContainer>

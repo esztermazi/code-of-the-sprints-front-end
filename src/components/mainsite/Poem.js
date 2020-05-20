@@ -1,7 +1,7 @@
 //Packages
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import { ArrowDown } from 'react-bootstrap-icons';
+import { BoxArrowInDown } from 'react-bootstrap-icons';
 
 const Poem = (props) => {
   return (
@@ -20,7 +20,7 @@ const Poem = (props) => {
       </p>
       <hr />
       <p className="mb-0 text-center">
-        Select your role in the fellowship ! <ArrowDown />
+        Select your role in the fellowship <BoxArrowInDown />
       </p>
     </Alert>
   );

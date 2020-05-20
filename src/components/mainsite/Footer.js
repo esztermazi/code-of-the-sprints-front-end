@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { BoxArrowInLeft } from 'react-bootstrap-icons';
 
 //Components
 import { ThemeProvider, ThemeContext } from '../contexts/ThemeContext';
@@ -18,7 +19,9 @@ const Footer = (props) => {
           pathname: `/home-of-the-sprints`,
         }}
       >
-        <Button variant={currentTheme.variant}>Back to Home</Button>
+        <Button variant={currentTheme.variant}>
+          <BoxArrowInLeft /> Home
+        </Button>
       </Link>
     </ThemeProvider>
   );
