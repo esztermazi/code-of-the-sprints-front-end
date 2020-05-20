@@ -1,6 +1,9 @@
 //Packages
 import React from 'react';
 
-const StartButton = ({ callBack }) => <div>Start Game</div>;
+//Styled Components
+import { StyledStartButton } from '../../../style/OrderBuilderElements';
+
+const StartButton = ({ callBack }) => <StyledStartButton>Start Game</StyledStartButton>;
 
 export default StartButton;
