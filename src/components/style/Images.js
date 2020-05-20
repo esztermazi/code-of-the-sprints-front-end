@@ -15,3 +15,9 @@ export const IndexImage = styled.img`
   box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
   background-size: cover;
 `;
+
+export const LogoImage = styled.img`
+  height: 250px;
+  width: 280px;
+  cursor: pointer;
+`;
