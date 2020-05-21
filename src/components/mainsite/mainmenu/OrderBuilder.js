@@ -12,6 +12,7 @@ import Display from './orderbuilder/Display';
 import StartButton from './orderbuilder/StartButton';
 
 //Custom Hooks
+import { useInterval } from './orderbuilder/hooks/useInterval';
 import { usePlayer } from './orderbuilder/hooks/usePlayer';
 import { useStage } from './orderbuilder/hooks/useStage';
 
@@ -42,6 +43,7 @@ const OrderBuilder = () => {
 
   const startGame = () => {
     setStage(createStage());
+    setDropTime(1000);
     resetPlayer();
     setGameOver(false);
   };
@@ -75,6 +77,10 @@ const OrderBuilder = () => {
       }
     }
   };
+
+  useInterval(() => {
+    drop();
+  }, dropTime);
 
   return (
     <ThemeProvider value={currentTheme}>
