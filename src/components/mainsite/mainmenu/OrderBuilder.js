@@ -51,13 +51,13 @@ const OrderBuilder = () => {
     drop();
   };
 
-  const move = (keycode) => {
+  const move = (e) => {
     if (!gameOver) {
-      if (keycode === 37) {
+      if (e.keyCode === 37) {
         movePlayer(-1);
-      } else if (keycode === 39) {
+      } else if (e.keyCode === 39) {
         movePlayer(1);
-      } else if (keycode === 40) {
+      } else if (e.keyCode === 40) {
         dropPlayer();
       }
     }
