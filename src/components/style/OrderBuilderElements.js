@@ -57,8 +57,9 @@ export const StyledDisplay = styled.div`
   width: 100%;
   border-radius: 20px;
   background: ${(props) => props.itemBackGround};
-  color: ${(props) => (props.gameOver ? 'red' : '#999')};
+  color: ${(props) => (props.gameOver ? 'red' : props.borderColor)};
   font-size: 0.8rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 `;
 
 export const StyledStartButton = styled.button`
@@ -69,11 +70,17 @@ export const StyledStartButton = styled.button`
   width: 100%;
   border-radius: 20px;
   border: none;
-  color: white;
-  background: #333;
+  color: ${(props) => props.color};
+  background: ${(props) => props.itemBackGround};
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
   font-size: 1rem;
   cursor: pointer;
   &:focus {
     outline: none;
+  }
+  &:hover {
+    background: ${(props) => props.itemHoverBackGround};
   }
 `;

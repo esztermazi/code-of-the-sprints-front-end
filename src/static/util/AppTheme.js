@@ -5,7 +5,7 @@ const AppTheme = {
     textColor: '#569F7B',
     textHoverColor: '#80C3A1',
     itemBackGround: '#F6F6DD',
-    itemHoverBackGround: '#F6F6DD',
+    itemHoverBackGround: '#EDEFC3',
     indexPic: 'IndexShire',
     logoPic: 'LightThemeLogo',
     borderColor: '#D7D7A6',

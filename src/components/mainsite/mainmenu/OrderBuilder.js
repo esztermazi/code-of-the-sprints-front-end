@@ -135,7 +135,7 @@ const OrderBuilder = () => {
                   />
                 </React.Fragment>
               )}
-              <StartButton callback={startGame} />
+              <StartButton currentTheme={currentTheme} callback={startGame} />
               <Footer currentTheme={currentTheme} />
             </aside>
           </StyledOrderBuilder>
