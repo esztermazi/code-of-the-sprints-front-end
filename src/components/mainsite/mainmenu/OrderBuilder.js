@@ -16,7 +16,7 @@ import { usePlayer } from './orderbuilder/hooks/usePlayer';
 import { useStage } from './orderbuilder/hooks/useStage';
 
 //Functions
-import { createStage } from './orderbuilder/GameHelper';
+import { createStage, checkCollision } from './orderbuilder/GameHelper';
 
 //Styled Components
 import { BackgroundContainer } from '../../style/LayoutElements';
@@ -35,7 +35,9 @@ const OrderBuilder = () => {
   const [stage, setStage] = useStage(player);
 
   const movePlayer = (dir) => {
-    updatePlayerPos({ x: dir, y: 0 });
+    if (!checkCollision(player, stage, { x: dir, y: 0 })) {
+      updatePlayerPos({ x: dir, y: 0 });
+    }
   };
 
   const startGame = () => {
