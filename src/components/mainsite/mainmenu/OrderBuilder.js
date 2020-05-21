@@ -15,6 +15,7 @@ import StartButton from './orderbuilder/StartButton';
 import { useInterval } from './orderbuilder/hooks/useInterval';
 import { usePlayer } from './orderbuilder/hooks/usePlayer';
 import { useStage } from './orderbuilder/hooks/useStage';
+import { useGameStatus } from './orderbuilder/hooks/useGameStatus';
 
 //Functions
 import { createStage, checkCollision } from './orderbuilder/GameHelper';
@@ -33,7 +34,10 @@ const OrderBuilder = () => {
   const [gameOver, setGameOver] = useState(false);
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
-  const [stage, setStage] = useStage(player, resetPlayer);
+  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+  const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(
+    rowsCleared
+  );
 
   const movePlayer = (dir) => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
@@ -46,9 +50,17 @@ const OrderBuilder = () => {
     setDropTime(1000);
     resetPlayer();
     setGameOver(false);
+    setScore(0);
+    setRows(0);
+    setLevel(0);
   };
 
   const drop = () => {
+    if (rows > (level + 1) * 10) {
+      setLevel((prev) => prev + 1);
+      setDropTime(1000 / (level + 1) + 200);
+    }
+
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
@@ -68,7 +80,7 @@ const OrderBuilder = () => {
   const keyUp = (e) => {
     if (!gameOver) {
       if (e.keyCode === 40) {
-        setDropTime(1000);
+        setDropTime(1000 / (level + 1) + 200);
       }
     }
   };
@@ -108,9 +120,9 @@ const OrderBuilder = () => {
                 <Display gameOver={gameOver} text="Game Over" />
               ) : (
                 <React.Fragment>
-                  <Display text="Score" />
-                  <Display text="Rows" />
-                  <Display text="Level" />
+                  <Display text={`Score: ${score}`} />
+                  <Display text={`Rows: ${rows}`} />
+                  <Display text={`Level: ${level}`} />
                 </React.Fragment>
               )}
               <StartButton callback={startGame} />
