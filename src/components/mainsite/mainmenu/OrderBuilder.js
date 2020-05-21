@@ -61,7 +61,16 @@ const OrderBuilder = () => {
   };
 
   const dropPlayer = () => {
+    setDropTime(null);
     drop();
+  };
+
+  const keyUp = (e) => {
+    if (!gameOver) {
+      if (e.keyCode === 40) {
+        setDropTime(1000);
+      }
+    }
   };
 
   const move = (e) => {
@@ -89,6 +98,7 @@ const OrderBuilder = () => {
         role="button"
         tabIndex="0"
         onKeyDown={(e) => move(e)}
+        onKeyUp={(e) => keyUp(e)}
       >
         <StyledWrapper>
           <StyledOrderBuilder>
