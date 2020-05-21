@@ -60,5 +60,5 @@ export const DocTypes = {
 export const randomDocType = () => {
   const types = 'IJLOSTZ';
   const randomDocType = types[Math.floor(Math.random() * types.length)];
-  return DocTypes[randomDocType];
+  return DocTypes['O'];
 };
