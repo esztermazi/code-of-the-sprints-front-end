@@ -117,12 +117,22 @@ const OrderBuilder = () => {
             <Stage stage={stage} />
             <aside>
               {gameOver ? (
-                <Display gameOver={gameOver} text="Game Over" />
+                <Display
+                  currentTheme={currentTheme}
+                  gameOver={gameOver}
+                  text="Game Over"
+                />
               ) : (
                 <React.Fragment>
-                  <Display text={`Score: ${score}`} />
-                  <Display text={`Rows: ${rows}`} />
-                  <Display text={`Level: ${level}`} />
+                  <Display
+                    currentTheme={currentTheme}
+                    text={`Score: ${score}`}
+                  />
+                  <Display currentTheme={currentTheme} text={`Rows: ${rows}`} />
+                  <Display
+                    currentTheme={currentTheme}
+                    text={`Level: ${level}`}
+                  />
                 </React.Fragment>
               )}
               <StartButton callback={startGame} />

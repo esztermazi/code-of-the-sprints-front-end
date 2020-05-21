@@ -4,8 +4,14 @@ import React from 'react';
 //Styled Components
 import { StyledDisplay } from '../../../style/OrderBuilderElements';
 
-const Display = ({ gameOver, text }) => (
-  <StyledDisplay gameOver={gameOver}>{text}</StyledDisplay>
+const Display = ({ currentTheme, gameOver, text }) => (
+  <StyledDisplay
+    itemBackGround={currentTheme.itemBackGround}
+    borderColor={currentTheme.borderColor}
+    gameOver={gameOver}
+  >
+    {text}
+  </StyledDisplay>
 );
 
 export default Display;
