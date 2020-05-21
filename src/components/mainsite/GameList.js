@@ -28,6 +28,7 @@ const GameList = () => {
       <StyledInLineContainer>
         {games.map((game) => (
           <Card
+            key={game.id}
             style={{
               width: '18rem',
               backgroundColor: currentTheme.itemBackGround,
