@@ -11,4 +11,4 @@ const Cell = ({ type }) => (
   <StyledCell type={type} color={DocTypes[type].color} />
 );
 
-export default Cell;
+export default React.memo(Cell);
