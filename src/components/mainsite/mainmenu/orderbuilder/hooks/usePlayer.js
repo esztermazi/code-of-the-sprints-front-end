@@ -15,6 +15,20 @@ export const usePlayer = () => {
     collided: false,
   });
 
+  const rotate = (matrix, dir) => {
+    const rotatedDoc = matrix.map((_, index) =>
+      matrix.map((col) => col[index])
+    );
+    if (dir > 0) return rotatedDoc.map((row) => row.reverse());
+    return rotatedDoc.reverse();
+  };
+
+  const playerRotate = (stage, dir) => {
+    const clonedPlayer = JSON.parse(JSON.stringify(player));
+    clonedPlayer.docType = rotate(clonedPlayer.docType, dir);
+    setPlayer(clonedPlayer);
+  };
+
   const updatePlayerPos = ({ x, y, collided }) => {
     setPlayer((prev) => ({
       ...prev,
@@ -31,5 +45,5 @@ export const usePlayer = () => {
     });
   }, []);
 
-  return [player, updatePlayerPos, resetPlayer];
+  return [player, updatePlayerPos, resetPlayer, playerRotate];
 };

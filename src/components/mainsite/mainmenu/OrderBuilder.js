@@ -31,7 +31,7 @@ const OrderBuilder = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player, updatePlayerPos, resetPlayer] = usePlayer();
+  const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage] = useStage(player, resetPlayer);
 
   const movePlayer = (dir) => {
@@ -70,6 +70,8 @@ const OrderBuilder = () => {
         movePlayer(1);
       } else if (e.keyCode === 40) {
         dropPlayer();
+      } else if (e.keyCode === 38) {
+        playerRotate(stage, 1);
       }
     }
   };
