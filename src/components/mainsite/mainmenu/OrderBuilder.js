@@ -1,5 +1,5 @@
 //Packages
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
@@ -10,6 +10,12 @@ import Footer from './Footer';
 import Stage from './orderbuilder/Stage';
 import Display from './orderbuilder/Display';
 import StartButton from './orderbuilder/StartButton';
+
+//Custom Hooks
+import { usePlayer } from './orderbuilder/hooks/usePlayer';
+import { useStage } from './orderbuilder/hooks/useStage';
+
+//Functions
 import { createStage } from './orderbuilder/GameHelper';
 
 //Styled Components
@@ -22,18 +28,63 @@ import {
 const OrderBuilder = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const [dropTime, setDropTime] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
+
+  const [player, updatePlayerPos, resetPlayer] = usePlayer();
+  const [stage, setStage] = useStage(player);
+
+  const movePlayer = (dir) => {
+    updatePlayerPos({ x: dir, y: 0 });
+  };
+
+  const startGame = () => {
+    setStage(createStage());
+    resetPlayer();
+  };
+
+  const drop = () => {
+    updatePlayerPos({ x: 0, y: 1, collided: false });
+  };
+
+  const dropPlayer = () => {
+    drop();
+  };
+
+  const move = (keycode) => {
+    if (!gameOver) {
+      if (keycode === 37) {
+        movePlayer(-1);
+      } else if (keycode === 39) {
+        movePlayer(1);
+      } else if (keycode === 40) {
+        dropPlayer();
+      }
+    }
+  };
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer color={currentTheme.bodyBackground}>
+      <BackgroundContainer
+        color={currentTheme.bodyBackground}
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => move(e)}
+      >
         <StyledWrapper>
           <StyledOrderBuilder>
-            <Stage stage={createStage()} />
+            <Stage stage={stage} />
             <aside>
-              <Display text="Score" />
-              <Display text="Rows" />
-              <Display text="Level" />
-              <StartButton />
+              {gameOver ? (
+                <Display gameOver={gameOver} text="Game Over" />
+              ) : (
+                <React.Fragment>
+                  <Display text="Score" />
+                  <Display text="Rows" />
+                  <Display text="Level" />
+                </React.Fragment>
+              )}
+              <StartButton callback={startGame} />
               <Footer currentTheme={currentTheme} />
             </aside>
           </StyledOrderBuilder>

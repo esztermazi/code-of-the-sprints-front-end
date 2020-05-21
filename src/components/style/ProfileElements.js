@@ -5,7 +5,7 @@ export const StyledNavigationButton = styled.button`
   color: ${(props) => props.color};
   background-color: transparent;
   border: none;
-  margin: 5px;
+  margin: 10px;
   &:hover {
     color: ${(props) => props.textHoverColor};
   }
@@ -24,6 +24,7 @@ export const StyledPagination = styled.div`
   a {
     background-color: ${(props) => props.itemBackGround};
   }
+  margin: 10px;
 `;
 
 export const StyledPaginationItem = styled.a`
@@ -52,6 +53,7 @@ export const DisabledPaginationItem = styled.a`
 
 export const StyledTable = styled.table`
   color: ${(props) => props.color};
+  margin: 10px;
   &&& {
     table,
     th,

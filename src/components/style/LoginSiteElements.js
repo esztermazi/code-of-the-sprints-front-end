@@ -1,12 +1,18 @@
 //Packages
 import styled from 'styled-components';
 
+export const StyledText = styled.p`
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+`;
+
 export const Textarea = styled.textarea`
   background-color: white;
   color: black;
-  width: 30%;
+  width: 20%;
   border-radius: 8px;
-  padding: 10px;
+  margin: 10px;
   text-align: center;
   resize: none;
   font-size: 18px;

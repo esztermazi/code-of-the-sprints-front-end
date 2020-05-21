@@ -17,7 +17,11 @@ import {
   BackgroundContainer,
   StyledColumnContainer,
 } from './style/LayoutElements';
-import { Textarea, MicrophonAlert } from './style/LoginSiteElements';
+import {
+  StyledText,
+  Textarea,
+  MicrophonAlert,
+} from './style/LoginSiteElements';
 
 //Images
 import WelcomePic from '../static/img/Welcome.gif';
@@ -66,12 +70,10 @@ const LoginSite = (props) => {
             alt="welcomepic"
             style={{ with: '25rem', height: '25rem' }}
           ></img>
-          <Alert variant={currentTheme.variant}>
-            <Alert.Heading className="text-center">
-              "It's a riddle. Speak friend and enter. What's the Elvish word for
-              friend?"
-            </Alert.Heading>
-          </Alert>
+          <StyledText>
+            "It's a riddle. Speak friend and enter. What's the Elvish word for
+            friend?"
+          </StyledText>
           <Textarea value={value} onChange={handleTextAreaChange} />
           <Button
             variant={currentTheme.variant}

@@ -8,7 +8,7 @@ import { DocTypes } from '../../../../static/util/OrderBuilderDocTypes';
 import { StyledCell } from '../../../style/OrderBuilderElements';
 
 const Cell = ({ type }) => (
-  <StyledCell type={'L'} color={DocTypes['L'].color} />
+  <StyledCell type={type} color={DocTypes[type].color} />
 );
 
 export default Cell;

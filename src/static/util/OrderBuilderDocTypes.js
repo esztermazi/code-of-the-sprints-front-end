@@ -57,10 +57,8 @@ export const DocTypes = {
     color: '227, 78, 78',
   },
 };
-
-export const randomDoytype = () => {
-  const tetrominos = 'IJLOSTZ';
-  const randomDoytype =
-    tetrominos[Math.floor(Math.random() * tetrominos.length)];
-  return DocTypes[randomDoytype];
+export const randomDocType = () => {
+  const types = 'IJLOSTZ';
+  const randomDocType = types[Math.floor(Math.random() * types.length)];
+  return DocTypes[randomDocType];
 };
