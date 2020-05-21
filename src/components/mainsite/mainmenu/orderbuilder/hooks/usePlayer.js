@@ -6,7 +6,7 @@ import {
   DocTypes,
   randomDocType,
 } from '../../../../../static/util/OrderBuilderDocTypes';
-import { STAGE_WIDTH } from '../GameHelper';
+import { STAGE_WIDTH, checkCollision } from '../GameHelper';
 
 export const usePlayer = () => {
   const [player, setPlayer] = useState({
@@ -26,6 +26,18 @@ export const usePlayer = () => {
   const playerRotate = (stage, dir) => {
     const clonedPlayer = JSON.parse(JSON.stringify(player));
     clonedPlayer.docType = rotate(clonedPlayer.docType, dir);
+
+    const pos = clonedPlayer.pos.x;
+    let offset = 1;
+    while (checkCollision(clonedPlayer, stage, { x: 0, y: 0 })) {
+      clonedPlayer.pos.x += offset;
+      offset = -(offset + (offset > 0 ? 1 : -1));
+      if (offset > clonedPlayer.doctype[0].length) {
+        rotate(clonedPlayer.docType, -dir);
+        clonedPlayer.pos.x = pos;
+        return;
+      }
+    }
     setPlayer(clonedPlayer);
   };
 
