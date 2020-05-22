@@ -1,28 +1,22 @@
 //Packages
 import React from 'react';
-import { Alert } from 'react-bootstrap';
-import { BoxArrowInDown } from 'react-bootstrap-icons';
 
-const Poem = (props) => {
+//Styled Components
+import { StyledPoem } from '../style/IndexElements';
+
+const Poem = ({ currentTheme }) => {
   return (
-    <Alert variant={props.currentTheme.variant}>
-      <Alert.Heading className="text-center">Dear applicant !</Alert.Heading>
-      <p className="text-center">
-        Three Rings for the Elven Lords under the Sky Seven for the Dwarf
-        <br></br>
-        Lords in their halls of Stone Nine for Mortal Men doomed to die One
-        <br></br>
-        for the Dark Lord on his dark throne In the Land of Mordor where the
-        <br></br>
-        Shadows lie One Shift to rule them all, One Shift to find them One
-        <br></br>
-        Shift to bring them all and in the darkness bind them.<br></br>
-      </p>
-      <hr />
-      <p className="mb-0 text-center">
-        Select your role in the fellowship <BoxArrowInDown />
-      </p>
-    </Alert>
+    <StyledPoem color={currentTheme.textColor}>
+      Dear applicant !<br></br>
+      <br></br>
+      Three Rings for the Elven Lords<br></br> under the Sky Seven for the Dwarf
+      <br></br>
+      Lords in their halls of Stone <br></br>Nine for Mortal Men doomed{' '}
+      <br></br>to die One for the Dark Lord<br></br> on his dark throne In the
+      Land<br></br> of Mordor where the Shadows<br></br> lie One Shift to rule{' '}
+      them all,<br></br> One Shift to find them <br></br>One Shift to bring them
+      all<br></br> and in the darkness bind them.<br></br>
+    </StyledPoem>
   );
 };
 

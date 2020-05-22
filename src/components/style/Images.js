@@ -17,6 +17,12 @@ export const IndexImage = styled.img`
   background-size: cover;
 `;
 
+export const PoemImage = styled.img`
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+`;
+
 export const LogoImage = styled.img`
   height: 250px;
   width: 280px;

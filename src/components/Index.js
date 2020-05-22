@@ -16,11 +16,14 @@ import AppTheme from '../static/util/AppTheme';
 import {
   BackgroundContainer,
   StyledColumnContainer,
+  StyledInLineContainer,
 } from './style/LayoutElements';
-import { AvatarImage, IndexImage } from './style/Images';
+import { StyledPoemContainer } from './style/IndexElements';
+import { AvatarImage, PoemImage } from './style/Images';
 import { StyledLink } from './style/NavbarElements';
 
 //Images
+import Pergamen from '../static/img/Pergamen.png';
 import frodo from '../static/img/avatars/Frodo.png';
 import samwise from '../static/img/avatars/Sam.png';
 import peregrin from '../static/img/avatars/Pippin.png';
@@ -48,9 +51,6 @@ const Index = () => {
     gimli,
     boromir,
   };
-  const images = require.context('../static/img/', true);
-  let indexImageUrl = images(`./${currentTheme.indexPic}.png`);
-
   const changeCharacter = (e) => {
     setAvatar({ name: e.target.id, imgPath: avatars[e.target.id] });
     characters.forEach((element) => {
@@ -85,106 +85,112 @@ const Index = () => {
   return (
     <ThemeProvider value={currentTheme}>
       <BackgroundContainer color={currentTheme.bodyBackground}>
-        <StyledColumnContainer>
-          <Poem currentTheme={currentTheme} />
-          {avatar !== null ? (
-            <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
-          ) : null}
-          <Dropdown onBlur={hideCharacterPic}>
-            <Dropdown.Toggle variant={currentTheme.variant}>
-              Characters
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="frodo"
+        <StyledInLineContainer>
+          <PoemImage src={Pergamen}></PoemImage>
+          <StyledPoemContainer>
+            <Poem currentTheme={currentTheme} />
+          </StyledPoemContainer>
+          <StyledColumnContainer>
+            {avatar !== null ? (
+              <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
+            ) : (
+              <div></div>
+            )}
+            <Dropdown onBlur={hideCharacterPic}>
+              <Dropdown.Toggle variant={currentTheme.variant}>
+                Characters
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="frodo"
+                >
+                  Frodo
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="samwise"
+                >
+                  Sam
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="peregrin"
+                >
+                  Pippin
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="meriadoc"
+                >
+                  Merry
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="gandalf"
+                >
+                  Gandalf
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="aragorn"
+                >
+                  Aragorn
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="legolas"
+                >
+                  Legolas
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="gimli"
+                >
+                  Gimli
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={changeCharacter}
+                  onMouseOver={showCharacterPic}
+                  onChange={hideCharacterPic}
+                  id="boromir"
+                >
+                  Boromir
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            {character !== null ? (
+              <StyledLink
+                to="/code-of-the-sprints"
+                color={currentTheme.textColor}
+                hoverColor={currentTheme.textHoverColor}
               >
-                Frodo
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="samwise"
-              >
-                Sam
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="peregrin"
-              >
-                Pippin
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="meriadoc"
-              >
-                Merry
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="gandalf"
-              >
-                Gandalf
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="aragorn"
-              >
-                Aragorn
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="legolas"
-              >
-                Legolas
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="gimli"
-              >
-                Gimli
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={changeCharacter}
-                onMouseOver={showCharacterPic}
-                onChange={hideCharacterPic}
-                id="boromir"
-              >
-                Boromir
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <IndexImage src={indexImageUrl} alt="poster" />
-          {character !== null ? (
-            <StyledLink
-              to="/code-of-the-sprints"
-              color={currentTheme.textColor}
-              hoverColor={currentTheme.textHoverColor}
-            >
-              Start journey <BoxArrowInRight />
-            </StyledLink>
-          ) : null}
-          <Link to="/">
-            <Button variant={currentTheme.variant}>
-              <BoxArrowInLeft /> Doors of Durin
-            </Button>
-          </Link>
-        </StyledColumnContainer>
+                Start journey <BoxArrowInRight />
+              </StyledLink>
+            ) : null}
+            <Link to="/">
+              <Button variant={currentTheme.variant}>
+                <BoxArrowInLeft /> Doors of Durin
+              </Button>
+            </Link>
+          </StyledColumnContainer>
+        </StyledInLineContainer>
       </BackgroundContainer>
     </ThemeProvider>
   );
