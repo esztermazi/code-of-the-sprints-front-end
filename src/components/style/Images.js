@@ -28,3 +28,5 @@ export const LogoImage = styled.img`
   width: 280px;
   cursor: pointer;
 `;
+
+

@@ -13,7 +13,7 @@ import Footer from '../../mainmenu/Footer';
 
 //Styled Component
 import {
-  BackgroundContainer,
+  Background,
   StyledColumnContainer,
 } from '../../../style/LayoutElements';
 import { StyledTree } from '../../../style/ContactsElements';
@@ -24,6 +24,9 @@ import '../../../../static/css/TreeGraph.css';
 const Contacts = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const images = require.context('../../../../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
+
   const { dataSource, rootData, setRootData } = useContext(TreeDataContext);
 
   const nodeClicked = (event, nodeKey) => {
@@ -53,7 +56,7 @@ const Contacts = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer color={currentTheme.bodyBackground}>
+      <Background imgUrl={imgUrl}>
         <StyledColumnContainer>
           <Card style={{ width: '18rem' }} border={currentTheme.variant}>
             <Card.Header>{rootData.name}</Card.Header>
@@ -86,7 +89,7 @@ const Contacts = () => {
           ></StyledTree>
           <Footer currentTheme={currentTheme} />
         </StyledColumnContainer>
-      </BackgroundContainer>
+      </Background>
     </ThemeProvider>
   );
 };

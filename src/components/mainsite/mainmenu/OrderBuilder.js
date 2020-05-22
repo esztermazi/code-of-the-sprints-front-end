@@ -21,7 +21,7 @@ import { useGameStatus } from './orderbuilder/hooks/useGameStatus';
 import { createStage, checkCollision } from './orderbuilder/GameHelper';
 
 //Styled Components
-import { BackgroundContainer } from '../../style/LayoutElements';
+import { Background } from '../../style/LayoutElements';
 import {
   StyledWrapper,
   StyledOrderBuilder,
@@ -30,6 +30,9 @@ import {
 const OrderBuilder = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const images = require.context('../../../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
+
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
@@ -105,8 +108,8 @@ const OrderBuilder = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer
-        color={currentTheme.bodyBackground}
+      <Background
+        imgUrl={imgUrl}
         role="button"
         tabIndex="0"
         onKeyDown={(e) => move(e)}
@@ -140,7 +143,7 @@ const OrderBuilder = () => {
             </aside>
           </StyledOrderBuilder>
         </StyledWrapper>
-      </BackgroundContainer>
+      </Background>
     </ThemeProvider>
   );
 };

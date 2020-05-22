@@ -11,22 +11,22 @@ import Footer from './mainsite/Footer';
 import AppTheme from '../static/util/AppTheme';
 
 //Stzled Components
-import {
-  BackgroundContainer,
-  StyledColumnContainer,
-} from './style/LayoutElements';
+import { Background, StyledColumnContainer } from './style/LayoutElements';
 
 const MainSite = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const images = require.context('../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
+
   return (
-    <BackgroundContainer color={currentTheme.bodyBackground}>
+    <Background imgUrl={imgUrl}>
       <StyledColumnContainer>
         <Header />
         <MainMenu />
         <Footer />
       </StyledColumnContainer>
-    </BackgroundContainer>
+    </Background>
   );
 };
 

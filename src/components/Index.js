@@ -14,7 +14,7 @@ import AppTheme from '../static/util/AppTheme';
 
 //Sytled Components
 import {
-  BackgroundContainer,
+  Background,
   StyledColumnContainer,
   StyledInLineContainer,
 } from './style/LayoutElements';
@@ -51,6 +51,9 @@ const Index = () => {
     gimli,
     boromir,
   };
+  const images = require.context('../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
+
   const changeCharacter = (e) => {
     setAvatar({ name: e.target.id, imgPath: avatars[e.target.id] });
     characters.forEach((element) => {
@@ -84,7 +87,7 @@ const Index = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer color={currentTheme.bodyBackground}>
+      <Background imgUrl={imgUrl}>
         <StyledInLineContainer>
           <PoemImage src={Pergamen}></PoemImage>
           <StyledPoemContainer>
@@ -191,7 +194,7 @@ const Index = () => {
             </Link>
           </StyledColumnContainer>
         </StyledInLineContainer>
-      </BackgroundContainer>
+      </Background>
     </ThemeProvider>
   );
 };

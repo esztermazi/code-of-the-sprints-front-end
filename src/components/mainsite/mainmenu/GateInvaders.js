@@ -8,13 +8,20 @@ import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
 import AppTheme from '../../../static/util/AppTheme';
 import Footer from './Footer';
 
+//Styled Components
+import { Background } from '../../style/LayoutElements';
+
 const GateInvaders = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
+  const images = require.context('../../../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
 
   return (
     <ThemeProvider value={currentTheme}>
-      <Footer currentTheme={currentTheme} />
+      <Background imgUrl={imgUrl}>
+        <Footer currentTheme={currentTheme} />
+      </Background>
     </ThemeProvider>
   );
 };

@@ -2,6 +2,7 @@ const AppTheme = {
   shire: {
     variant: 'success',
     bodyBackground: '#FCFCE8',
+    backgroundImage: 'Shire',
     textColor: '#569F7B',
     textHoverColor: '#80C3A1',
     itemBackGround: '#F6F6DD',
@@ -13,6 +14,7 @@ const AppTheme = {
   mordor: {
     variant: 'danger',
     bodyBackground: '#000000',
+    backgroundImage: 'Mordor',
     textColor: '#D4AF37',
     textHoverColor: '#BB981D',
     itemBackGround: '#1a1a1a',
@@ -24,6 +26,7 @@ const AppTheme = {
   gondor: {
     variant: 'light',
     bodyBackground: '#F5F8FA',
+    backgroundImage: 'Gondor',
     textColor: '#48778B',
     textHoverColor: '#88A6B3',
     itemBackGround: '#f2f2f2',

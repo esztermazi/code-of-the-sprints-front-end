@@ -18,7 +18,7 @@ import AppTheme from '../../../../static/util/AppTheme';
 
 //Styled Components
 import {
-  BackgroundContainer,
+  Background,
   StyledColumnContainer,
 } from '../../../style/LayoutElements';
 import { AvatarImage } from '../../../style/Images';
@@ -40,6 +40,8 @@ const Profile = () => {
   const quotesPerPage = 5;
   const firstPage = 1;
   const lastpage = Math.round(characterQuotes.length / quotesPerPage);
+  const images = require.context('../../../../static/img/', true);
+  let imgUrl = images(`./${currentTheme.backgroundImage}.png`);
 
   const openNewTab = () => {
     window.open(character.wikiUrl);
@@ -120,7 +122,7 @@ const Profile = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer color={currentTheme.bodyBackground}>
+      <Background imgUrl={imgUrl}>
         <StyledColumnContainer>
           <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
           <StyledText color={currentTheme.borderColor}>
@@ -219,7 +221,7 @@ const Profile = () => {
           </StyledTable>
           <Footer currentTheme={currentTheme} />
         </StyledColumnContainer>
-      </BackgroundContainer>
+      </Background>
     </ThemeProvider>
   );
 };
