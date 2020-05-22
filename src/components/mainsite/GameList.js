@@ -1,6 +1,6 @@
 //Packages
 import React, { useContext } from 'react';
-import { Bullseye, Hammer, GearFill } from 'react-bootstrap-icons';
+
 //Contexts
 import { ThemeContext, ThemeProvider } from '../contexts/ThemeContext';
 
@@ -25,18 +25,14 @@ const GameList = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   const images = require.context('../../static/img/', true);
-  const icons = [Bullseye, Hammer, GearFill];
-
-  console.log(icons[0]);
 
   return (
     <ThemeProvider value={currentTheme}>
       <StyledInLineContainer>
         {games.map((game) => (
-          <StyledCard>
+          <StyledCard key={game.id}>
             <StyledCardInner>
               <StyledCardFront
-                key={game.id}
                 style={{
                   width: '15rem',
                   backgroundColor: currentTheme.itemBackGround,
@@ -66,7 +62,7 @@ const GameList = () => {
                   hoverColor={currentTheme.textHoverColor}
                   to={`/${game.link}`}
                 >
-                  <Hammer />
+                  <i className={`fa fa-${game.icon}`} id="icon" />
                 </StyledCardLink>
               </StyledCardBack>
             </StyledCardInner>
