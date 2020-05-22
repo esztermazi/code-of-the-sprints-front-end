@@ -1,8 +1,10 @@
 //Packages
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import { BoxArrowInLeft } from 'react-bootstrap-icons';
+
+//Styled Components
+import { StyledButton } from '../../style/LayoutElements';
 
 const Footer = (props) => {
   return (
@@ -12,9 +14,15 @@ const Footer = (props) => {
           pathname: `/code-of-the-sprints`,
         }}
       >
-        <Button variant={props.currentTheme.variant}>
+        <StyledButton
+          buttonBackgroundColor={props.currentTheme.buttonBackgroundColor}
+          buttonTextColor={props.currentTheme.buttonTextColor}
+          buttonBackgroundHoverColor={
+            props.currentTheme.buttonBackgroundHoverColor
+          }
+        >
           <BoxArrowInLeft /> Main Menu
-        </Button>
+        </StyledButton>
       </Link>
     </React.Fragment>
   );

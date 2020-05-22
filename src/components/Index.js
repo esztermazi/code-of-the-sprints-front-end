@@ -1,7 +1,7 @@
 //Packages
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Dropdown, Button } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import { BoxArrowInLeft, BoxArrowInRight } from 'react-bootstrap-icons';
 
 //Contexts
@@ -17,6 +17,7 @@ import {
   Background,
   StyledColumnContainer,
   StyledInLineContainer,
+  StyledButton,
 } from './style/LayoutElements';
 import { StyledPoemContainer } from './style/IndexElements';
 import { AvatarImage, PoemImage } from './style/Images';
@@ -188,9 +189,15 @@ const Index = () => {
               </StyledLink>
             ) : null}
             <Link to="/">
-              <Button variant={currentTheme.variant}>
+              <StyledButton
+                buttonBackgroundColor={currentTheme.buttonBackgroundColor}
+                buttonTextColor={currentTheme.buttonTextColor}
+                buttonBackgroundHoverColor={
+                  currentTheme.buttonBackgroundHoverColor
+                }
+              >
                 <BoxArrowInLeft /> Doors of Durin
-              </Button>
+              </StyledButton>
             </Link>
           </StyledColumnContainer>
         </StyledInLineContainer>

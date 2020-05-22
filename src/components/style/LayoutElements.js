@@ -41,3 +41,25 @@ export const Background = styled.div`
     z-index: -1;
   }
 `;
+
+export const StyledButton = styled.button`
+  border: none;
+  background: ${(props) => props.buttonBackgroundColor};
+  color: ${(props) => props.buttonTextColor} !important;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background: ${(props) => props.buttonBackgroundHoverColor};
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+  }
+`;

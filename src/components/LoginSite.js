@@ -1,7 +1,6 @@
 //Packages
 import React, { useContext, useState, useEffect } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
-import { Button } from 'react-bootstrap';
 import { MicFill } from 'react-bootstrap-icons';
 
 //Contexts
@@ -16,6 +15,7 @@ import AppTheme from '../static/util/AppTheme';
 import {
   BackgroundContainer,
   StyledColumnContainer,
+  StyledButton,
 } from './style/LayoutElements';
 import {
   StyledText,
@@ -75,13 +75,15 @@ const LoginSite = (props) => {
             friend?"
           </StyledText>
           <Textarea value={value} onChange={handleTextAreaChange} />
-          <Button
-            variant={currentTheme.variant}
+          <StyledButton
+            buttonBackgroundColor={currentTheme.buttonBackgroundColor}
+            buttonTextColor={currentTheme.buttonTextColor}
+            buttonBackgroundHoverColor={currentTheme.buttonBackgroundHoverColor}
             onMouseDown={listen}
             onMouseUp={stop}
           >
             Push to talk <MicFill />
-          </Button>
+          </StyledButton>
           {listening && <MicrophonAlert>Go ahead I'm listening</MicrophonAlert>}
         </StyledColumnContainer>
       </BackgroundContainer>
