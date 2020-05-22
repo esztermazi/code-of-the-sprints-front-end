@@ -9,6 +9,7 @@ export const AvatarImage = styled.img`
 export const IndexImage = styled.img`
   height: 300px;
   width: 410px;
+  object-fit: cover;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);

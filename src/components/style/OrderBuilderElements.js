@@ -73,7 +73,7 @@ export const StyledStartButton = styled.button`
   color: ${(props) => props.color};
   background: ${(props) => props.itemBackGround};
   transform: translateY(-5px);
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease 0s;
   font-size: 1rem;
   cursor: pointer;
@@ -82,5 +82,6 @@ export const StyledStartButton = styled.button`
   }
   &:hover {
     background: ${(props) => props.itemHoverBackGround};
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 `;

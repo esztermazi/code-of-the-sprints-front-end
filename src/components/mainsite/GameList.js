@@ -1,8 +1,6 @@
 //Packages
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
-
+import { Bullseye, Hammer, GearFill } from 'react-bootstrap-icons';
 //Contexts
 import { ThemeContext, ThemeProvider } from '../contexts/ThemeContext';
 
@@ -13,44 +11,66 @@ import AppTheme from '../../static/util/AppTheme';
 //Styled Components
 import { StyledInLineContainer } from '../style/LayoutElements';
 import {
+  StyledCard,
+  StyledCardInner,
+  StyledCardFront,
+  StyledCardBack,
+  StyledCardImg,
   StyledCardText,
   StyledCardTitle,
-  StyledCardBody,
-} from '../style/MainMenuElements';
+  StyledCardLink,
+} from '../style/GameListElements';
 
 const GameList = () => {
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   const images = require.context('../../static/img/', true);
+  const icons = [Bullseye, Hammer, GearFill];
+
+  console.log(icons[0]);
 
   return (
     <ThemeProvider value={currentTheme}>
       <StyledInLineContainer>
         {games.map((game) => (
-          <Card
-            key={game.id}
-            style={{
-              width: '18rem',
-              backgroundColor: currentTheme.itemBackGround,
-            }}
-            className={currentTheme.textColor}
-          >
-            <Link to={`/${game.link}`}>
-              <Card.Img
-                variant="top"
-                src={images(`./${game.img}.png`)}
-                alt={game.link}
-              />
-            </Link>
-            <StyledCardBody>
-              <StyledCardTitle color={currentTheme.textColor}>
-                {game.title}
-              </StyledCardTitle>
-              <StyledCardText textHoverColor={currentTheme.textHoverColor}>
-                {game.description}
-              </StyledCardText>
-            </StyledCardBody>
-          </Card>
+          <StyledCard>
+            <StyledCardInner>
+              <StyledCardFront
+                key={game.id}
+                style={{
+                  width: '15rem',
+                  backgroundColor: currentTheme.itemBackGround,
+                }}
+                className={currentTheme.textColor}
+              >
+                <StyledCardImg
+                  variant="top"
+                  src={images(`./${game.img}.png`)}
+                  alt={game.link}
+                />
+                <StyledCardTitle color={currentTheme.textColor}>
+                  {game.title}
+                </StyledCardTitle>
+              </StyledCardFront>
+              <StyledCardBack
+                style={{
+                  width: '15rem',
+                  backgroundColor: currentTheme.itemBackGround,
+                }}
+              >
+                <StyledCardText textHoverColor={currentTheme.textHoverColor}>
+                  {game.description}
+                </StyledCardText>
+                <StyledCardLink
+                  color={currentTheme.textColor}
+                  hoverColor={currentTheme.textHoverColor}
+                  to={`/${game.link}`}
+                >
+                  <Hammer />
+                </StyledCardLink>
+              </StyledCardBack>
+            </StyledCardInner>
+          </StyledCard>
         ))}
       </StyledInLineContainer>
     </ThemeProvider>

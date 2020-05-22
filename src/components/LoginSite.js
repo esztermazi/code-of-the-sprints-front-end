@@ -1,7 +1,7 @@
 //Packages
 import React, { useContext, useState, useEffect } from 'react';
 import { useSpeechRecognition } from 'react-speech-kit';
-import { Alert, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { MicFill } from 'react-bootstrap-icons';
 
 //Contexts
