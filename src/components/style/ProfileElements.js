@@ -6,8 +6,10 @@ export const StyledNavigationButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 10px;
+  transition: text-shadow 0.2s ease-in-out;
   &:hover {
     color: ${(props) => props.textHoverColor};
+    text-shadow: 1px 1px 3px ${(props) => props.hoverColor};
   }
   &:focus {
     outline: none;
