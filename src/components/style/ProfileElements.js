@@ -74,8 +74,11 @@ export const StyledTable = styled.table`
     table {
       width: 100%;
     }
+    tr {
+      background-color: ${(props) => props.itemHoverBackGround};
+    }
     tr:nth-child(even) {
-      background-color: ${(props) => props.itemBackGround};
+      background-color: ${(props) => props.itemBackGround}; !important;
     }
     tr:hover {
       background-color: ${(props) => props.itemHoverBackGround} !important;

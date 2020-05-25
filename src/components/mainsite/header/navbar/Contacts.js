@@ -15,6 +15,7 @@ import Footer from '../../mainmenu/Footer';
 import {
   Background,
   StyledColumnContainer,
+  StyledButton,
 } from '../../../style/LayoutElements';
 import { StyledTree } from '../../../style/ContactsElements';
 
@@ -65,9 +66,16 @@ const Contacts = () => {
               <Card.Text>Culture: {rootData.culture}</Card.Text>
             </Card.Body>
             <Card.Footer className="text-center">
-              <Button variant={currentTheme.variant} onClick={resetTreeData}>
+              <StyledButton
+                buttonBackgroundColor={currentTheme.buttonBackgroundColor}
+                buttonTextColor={currentTheme.buttonTextColor}
+                buttonBackgroundHoverColor={
+                  currentTheme.buttonBackgroundHoverColor
+                }
+                onClick={resetTreeData}
+              >
                 Reset
-              </Button>
+              </StyledButton>
             </Card.Footer>
           </Card>
           <StyledTree
@@ -81,10 +89,14 @@ const Contacts = () => {
               onClick: nodeClicked,
               fill: currentTheme.textColor,
               fontSize: 20,
+              fontWeight: 0,
               cursor: 'pointer',
             }}
             circleProps={{
               fill: 'black',
+            }}
+            textProps={{
+              textShadow: '2px 2px 4px #000000',
             }}
           ></StyledTree>
           <Footer currentTheme={currentTheme} />
