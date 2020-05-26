@@ -14,6 +14,10 @@ export const StyledColumnContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export const StyledInLineContainer = styled.div`

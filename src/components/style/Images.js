@@ -21,12 +21,22 @@ export const PoemImage = styled.img`
   height: 80%;
   width: 80%;
   object-fit: cover;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 export const LogoImage = styled.img`
-  height: 250px;
-  width: 280px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 35%;
+  width: 35%;
   cursor: pointer;
+  @media screen and (max-width: 600px) {
+    width: 80%;
+    height: 40%;
+  }
 `;
-
-

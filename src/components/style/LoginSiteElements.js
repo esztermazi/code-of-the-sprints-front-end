@@ -37,6 +37,6 @@ export const LoginImage = styled.img`
   width: 75%;
   @media screen and (max-width: 600px) {
     width: 100%;
-    height: 100%;
+    height: 50%;
   }
 `;
