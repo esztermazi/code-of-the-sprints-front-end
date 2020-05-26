@@ -27,3 +27,16 @@ export const Textarea = styled.textarea`
 export const MicrophonAlert = styled.div`
   color: white;
 `;
+
+export const LoginImage = styled.img`
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 75%;
+  width: 75%;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+`;

@@ -78,3 +78,4 @@ export const StyledCardBack = styled.div`
   border-radius: 5px;
   transform: rotateY(180deg);
 `;
+

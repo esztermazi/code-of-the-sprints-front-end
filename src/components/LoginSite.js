@@ -13,11 +13,12 @@ import AppTheme from '../static/util/AppTheme';
 
 //Sytled Components
 import {
-  BackgroundContainer,
+  Background,
   StyledColumnContainer,
   StyledButton,
 } from './style/LayoutElements';
 import {
+  LoginImage,
   StyledText,
   Textarea,
   MicrophonAlert,
@@ -63,13 +64,9 @@ const LoginSite = (props) => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <BackgroundContainer style={{ backgroundColor: 'rgb(37, 39, 38)' }}>
+      <Background style={{ backgroundColor: 'rgb(37, 39, 38)' }}>
         <StyledColumnContainer>
-          <img
-            src={WelcomePic}
-            alt="welcomepic"
-            style={{ with: '25rem', height: '25rem' }}
-          ></img>
+          <LoginImage src={WelcomePic} alt="welcomepic"></LoginImage>
           <StyledText>
             "It's a riddle. Speak friend and enter. What's the Elvish word for
             friend?"
@@ -86,7 +83,7 @@ const LoginSite = (props) => {
           </StyledButton>
           {listening && <MicrophonAlert>Go ahead I'm listening</MicrophonAlert>}
         </StyledColumnContainer>
-      </BackgroundContainer>
+      </Background>
     </ThemeProvider>
   );
 };

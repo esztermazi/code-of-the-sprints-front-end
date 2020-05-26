@@ -18,17 +18,24 @@ export const StyledColumnContainer = styled.div`
 
 export const StyledInLineContainer = styled.div`
   display: flex;
-  aligh-items: center;
+  align-items: center;
   justify-content: center;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Background = styled.div`
   height: 100%;
-  width: 100%;
-  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   &::after {
     content: '';
     background-image: url(${(props) => props.imgUrl});
