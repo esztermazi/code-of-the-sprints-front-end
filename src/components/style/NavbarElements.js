@@ -30,3 +30,20 @@ export const StyledLink = styled(Link)`
     text-decoration: none;
   }
 `;
+
+export const StyledNavBar = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+`;
+
+export const StyledNavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

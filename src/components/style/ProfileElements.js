@@ -80,7 +80,7 @@ export const StyledTable = styled.table`
       background-color: ${(props) => props.itemHoverBackGround};
     }
     tr:nth-child(even) {
-      background-color: ${(props) => props.itemBackGround}; !important;
+      background-color: ${(props) => props.itemBackGround} !important;
     }
     tr:hover {
       background-color: ${(props) => props.itemHoverBackGround} !important;

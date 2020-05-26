@@ -36,7 +36,7 @@ export const LogoImage = styled.img`
   width: 35%;
   cursor: pointer;
   @media screen and (max-width: 600px) {
-    width: 80%;
-    height: 40%;
+    width: 100%;
+    height: 100%;
   }
 `;

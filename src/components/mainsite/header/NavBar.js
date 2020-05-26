@@ -1,6 +1,6 @@
 //Packages
 import React, { useContext } from 'react';
-import { Navbar, Nav, Dropdown } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 
 //Contexts
 import { ThemeContext, ThemeProvider } from '../../contexts/ThemeContext';
@@ -14,7 +14,11 @@ import { MordorTreeData as mordor } from '../../../static/util/MordorTreeData';
 import { GondorTreeData as gondor } from '../../../static/util/GondorTreeData';
 
 //Styled Components
-import { StyledNavbarLink } from '../../style/NavbarElements';
+import {
+  StyledNavBar,
+  StyledNavLinks,
+  StyledNavbarLink,
+} from '../../style/NavbarElements';
 import { AvatarImage } from '../../style/Images';
 
 const NavBar = () => {
@@ -36,9 +40,8 @@ const NavBar = () => {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <Navbar>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav>
+      <StyledNavBar>
+        <StyledNavLinks>
           <StyledNavbarLink
             to="/profile"
             color={currentTheme.textColor}
@@ -60,26 +63,26 @@ const NavBar = () => {
           >
             Contacts
           </StyledNavbarLink>
-          <Dropdown>
-            <Dropdown.Toggle variant={currentTheme.variant}>
-              Theme
-            </Dropdown.Toggle>
+        </StyledNavLinks>
+        <Dropdown>
+          <Dropdown.Toggle variant={currentTheme.variant}>
+            Theme
+          </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={changeTheme} id="shire">
-                Shire
-              </Dropdown.Item>
-              <Dropdown.Item onClick={changeTheme} id="mordor">
-                Mordor
-              </Dropdown.Item>
-              <Dropdown.Item onClick={changeTheme} id="gondor">
-                Gondor
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
-        </Nav>
-      </Navbar>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={changeTheme} id="shire">
+              Shire
+            </Dropdown.Item>
+            <Dropdown.Item onClick={changeTheme} id="mordor">
+              Mordor
+            </Dropdown.Item>
+            <Dropdown.Item onClick={changeTheme} id="gondor">
+              Gondor
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <AvatarImage src={avatar.imgPath} alt="avatar"></AvatarImage>
+      </StyledNavBar>
     </ThemeProvider>
   );
 };

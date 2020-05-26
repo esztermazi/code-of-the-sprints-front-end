@@ -79,12 +79,14 @@ const Contacts = () => {
             </Card.Footer>
           </Card>
           <StyledTree
+            classname="fa"
             data={rootData}
             height={400}
             animated
             width={1400}
             duration={600}
             keyProp={'id'}
+            svgProps={{ className: 'elements' }}
             gProps={{
               onClick: nodeClicked,
               fill: currentTheme.textColor,

@@ -7,7 +7,7 @@ export const StyledPoem = styled.div`
   top: 65%;
   left: 45%;
   transform: translate(-50%, -80%);
-  font-size: 20px;
+  font-size: 110%;
   text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 `;
 

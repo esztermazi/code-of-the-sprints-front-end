@@ -51,6 +51,10 @@ export const Background = styled.div`
     position: absolute;
     z-index: -1;
   }
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const StyledButton = styled.button`
